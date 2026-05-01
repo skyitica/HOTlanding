@@ -10,16 +10,23 @@
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Jost:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --bg-deep: #0f0e0c;
-      --bg-elevated: #181614;
-      --bg-card: #1e1c19;
-      --text-primary: #f4efe6;
-      --text-muted: #a39a8c;
-      --text-subtle: #6b655c;
-      --accent: #c9a227;
-      --accent-soft: rgba(201, 162, 39, 0.15);
-      --accent-glow: rgba(201, 162, 39, 0.35);
-      --border: rgba(244, 239, 230, 0.08);
+      --bg-page: #ffffff;
+      --bg-warm: #f6f2eb;
+      --bg-muted: #ece6dc;
+      --bg-elevated: #faf7f2;
+      --bg-card: #ffffff;
+      --ink: #121110;
+      --text-primary: #121110;
+      --text-muted: #3d3a36;
+      --text-subtle: #5e5952;
+      --accent: #8c6220;
+      --accent-bright: #b8860b;
+      --accent-soft: rgba(140, 98, 32, 0.12);
+      --accent-glow: rgba(184, 134, 11, 0.18);
+      --border: rgba(18, 17, 16, 0.14);
+      --border-strong: rgba(18, 17, 16, 0.22);
+      --shadow-sm: 0 1px 0 rgba(18, 17, 16, 0.06), 0 8px 24px rgba(18, 17, 16, 0.06);
+      --shadow-md: 0 20px 50px rgba(18, 17, 16, 0.1);
       --font-display: "EB Garamond", "Times New Roman", serif;
       --font-sans: "Jost", system-ui, sans-serif;
       --space-xs: 0.5rem;
@@ -51,6 +58,10 @@
         transform: none !important;
         transition: none !important;
       }
+      .btn-primary:hover,
+      .barber-card:hover {
+        transform: none;
+      }
     }
 
     body {
@@ -58,21 +69,22 @@
       font-family: var(--font-sans);
       font-weight: 400;
       font-size: 1.0625rem;
-      line-height: 1.55;
-      color: var(--text-primary);
-      background-color: var(--bg-deep);
+      line-height: 1.6;
+      color: var(--text-muted);
+      background-color: var(--bg-page);
       -webkit-font-smoothing: antialiased;
     }
 
-    /* Grain overlay */
+    /* Paper grain */
     body::before {
       content: "";
       position: fixed;
       inset: 0;
       pointer-events: none;
       z-index: 9999;
-      opacity: 0.04;
+      opacity: 0.035;
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      mix-blend-mode: multiply;
     }
 
     img {
@@ -83,17 +95,26 @@
 
     a {
       color: var(--accent);
-      text-decoration: none;
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 0.25em;
     }
 
     a:hover {
-      text-decoration: underline;
-      text-underline-offset: 0.2em;
+      color: var(--accent-bright);
     }
 
     a:focus-visible {
       outline: 2px solid var(--accent);
       outline-offset: 3px;
+    }
+
+    .btn {
+      text-decoration: none;
+    }
+
+    .btn:hover {
+      text-decoration: none;
     }
 
     .skip-link {
@@ -102,9 +123,14 @@
       top: 0;
       z-index: 100000;
       padding: 0.75rem 1rem;
-      background: var(--accent);
-      color: var(--bg-deep);
+      background: var(--ink);
+      color: var(--bg-page);
       font-weight: 600;
+      text-decoration: none;
+    }
+
+    .skip-link:focus {
+      text-decoration: none;
     }
 
     .skip-link:focus {
@@ -130,9 +156,11 @@
       top: 0;
       z-index: 1000;
       height: var(--nav-h);
-      background: rgba(15, 14, 12, 0.88);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border-strong);
+      box-shadow: 0 1px 0 rgba(255, 255, 255, 0.8) inset;
     }
 
     .nav-inner {
@@ -151,7 +179,7 @@
       font-size: 1.25rem;
       font-weight: 600;
       letter-spacing: 0.02em;
-      color: var(--text-primary);
+      color: var(--ink);
       text-decoration: none;
       white-space: nowrap;
     }
@@ -172,15 +200,15 @@
 
     .nav-links a {
       font-size: 0.8125rem;
-      font-weight: 500;
+      font-weight: 600;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--text-muted);
+      color: var(--text-subtle);
       text-decoration: none;
     }
 
     .nav-links a:hover {
-      color: var(--text-primary);
+      color: var(--ink);
       text-decoration: none;
     }
 
@@ -196,28 +224,32 @@
       text-transform: uppercase;
       border: none;
       cursor: pointer;
-      transition: background 0.2s, color 0.2s, border-color 0.2s;
+      transition: background 0.2s, color 0.2s, border-color 0.2s, transform 0.2s ease, box-shadow 0.2s ease;
     }
 
     .btn-primary {
-      background: var(--accent);
-      color: var(--bg-deep);
+      background: var(--ink);
+      color: var(--bg-page);
+      box-shadow: var(--shadow-sm);
     }
 
     .btn-primary:hover {
-      background: #d4ae32;
+      background: #2a2826;
+      color: var(--bg-page);
       text-decoration: none;
+      transform: translateY(-1px);
     }
 
     .btn-outline {
       background: transparent;
-      color: var(--text-primary);
-      border: 1px solid var(--border);
+      color: var(--ink);
+      border: 2px solid var(--ink);
     }
 
     .btn-outline:hover {
       border-color: var(--accent);
       color: var(--accent);
+      background: var(--accent-soft);
       text-decoration: none;
     }
 
@@ -229,13 +261,13 @@
       border: none;
       padding: 0.5rem;
       cursor: pointer;
-      color: var(--text-primary);
+      color: var(--ink);
     }
 
     .nav-toggle span {
       display: block;
       width: 22px;
-      height: 1px;
+      height: 2px;
       background: currentColor;
     }
 
@@ -249,8 +281,9 @@
         top: var(--nav-h);
         left: 0;
         right: 0;
-        background: var(--bg-deep);
-        border-bottom: 1px solid var(--border);
+        background: var(--bg-page);
+        border-bottom: 1px solid var(--border-strong);
+        box-shadow: var(--shadow-md);
         padding: var(--space-md);
         transform: translateY(-100%);
         opacity: 0;
@@ -296,17 +329,23 @@
 
     .section {
       padding: var(--space-2xl) 0;
-      border-top: 1px solid var(--border);
+      border-top: 1px solid var(--border-strong);
+      background-color: var(--bg-page);
     }
 
     .section:first-of-type {
       border-top: none;
     }
 
+    main > .section:nth-of-type(even) {
+      background-color: var(--bg-warm);
+      border-top-color: var(--border);
+    }
+
     .eyebrow {
       font-size: 0.6875rem;
       font-weight: 600;
-      letter-spacing: 0.2em;
+      letter-spacing: 0.22em;
       text-transform: uppercase;
       color: var(--accent);
       margin: 0 0 var(--space-sm);
@@ -316,14 +355,15 @@
     h2,
     h3 {
       font-family: var(--font-display);
-      font-weight: 500;
+      font-weight: 600;
       line-height: 1.15;
       margin: 0 0 var(--space-md);
+      color: var(--ink);
     }
 
     h1 {
       font-size: clamp(2.75rem, 8vw, 4.5rem);
-      letter-spacing: -0.02em;
+      letter-spacing: -0.025em;
     }
 
     h2 {
@@ -353,19 +393,47 @@
       padding: var(--space-xl) 0 var(--space-2xl);
       position: relative;
       overflow: hidden;
+      background: linear-gradient(180deg, var(--bg-page) 0%, var(--bg-warm) 100%);
+    }
+
+    .hero::before {
+      content: "Taperz";
+      position: absolute;
+      right: min(-4vw, -1rem);
+      top: clamp(4rem, 12vh, 7rem);
+      font-family: var(--font-display);
+      font-size: clamp(7rem, 22vw, 16rem);
+      font-weight: 500;
+      color: var(--ink);
+      opacity: 0.055;
+      line-height: 0.82;
+      pointer-events: none;
+      letter-spacing: -0.03em;
     }
 
     .hero::after {
       content: "";
       position: absolute;
-      top: 20%;
-      right: -15%;
-      width: 55%;
-      max-width: 520px;
+      top: 15%;
+      right: -10%;
+      width: 50%;
+      max-width: 480px;
       aspect-ratio: 1;
-      background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+      background: radial-gradient(circle, var(--accent-glow) 0%, transparent 72%);
       pointer-events: none;
-      opacity: 0.5;
+    }
+
+    .hero-main {
+      position: relative;
+      padding-left: var(--space-md);
+      margin-left: 0;
+      border-left: 4px solid var(--accent-bright);
+      box-decoration-break: clone;
+    }
+
+    .hero-meta a {
+      color: var(--accent);
+      font-weight: 500;
     }
 
     .hero-grid {
@@ -388,15 +456,16 @@
       font-size: clamp(1.25rem, 2.5vw, 1.65rem);
       font-style: italic;
       color: var(--text-muted);
-      max-width: 28ch;
+      max-width: 32ch;
       margin-bottom: var(--space-lg);
     }
 
     .hero-meta {
-      font-size: 0.875rem;
-      color: var(--text-subtle);
-      letter-spacing: 0.04em;
+      font-size: 0.9375rem;
+      color: var(--text-muted);
+      letter-spacing: 0.03em;
       margin-top: var(--space-md);
+      font-weight: 500;
     }
 
     .hero-actions {
@@ -407,14 +476,17 @@
     }
 
     .hero-aside {
-      padding-top: var(--space-lg);
+      background: var(--bg-page);
+      border: 1px solid var(--border-strong);
+      padding: var(--space-lg);
+      box-shadow: var(--shadow-sm);
     }
 
     @media (min-width: 900px) {
       .hero-aside {
-        padding-top: 0;
         text-align: right;
         align-self: end;
+        padding: var(--space-lg) var(--space-lg) var(--space-lg) var(--space-xl);
       }
 
       .hero-actions.hero-actions--aside {
@@ -422,20 +494,27 @@
       }
     }
 
+    @media (max-width: 899px) {
+      .hero-aside {
+        margin-top: var(--space-md);
+      }
+    }
+
     .hero-stat {
       font-family: var(--font-display);
-      font-size: 3.5rem;
-      font-weight: 500;
-      color: var(--accent);
+      font-size: clamp(3rem, 8vw, 4rem);
+      font-weight: 600;
+      color: var(--ink);
       line-height: 1;
       margin-bottom: var(--space-xs);
     }
 
     .hero-stat-label {
       font-size: 0.75rem;
-      letter-spacing: 0.18em;
+      font-weight: 600;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: var(--text-subtle);
+      color: var(--text-muted);
     }
 
     /* About */
@@ -454,11 +533,12 @@
     .about-pull {
       font-family: var(--font-display);
       font-size: clamp(1.5rem, 2.5vw, 2rem);
-      color: var(--text-primary);
-      border-left: 2px solid var(--accent);
+      font-weight: 500;
+      color: var(--ink);
+      border-left: 4px solid var(--accent-bright);
       padding-left: var(--space-md);
       margin: 0;
-      line-height: 1.4;
+      line-height: 1.45;
     }
 
     /* Services */
@@ -514,7 +594,7 @@
     }
 
     .price-tag {
-      color: var(--accent);
+      color: var(--ink);
       font-weight: 600;
       font-size: 0.8125rem;
       letter-spacing: 0.06em;
@@ -542,16 +622,23 @@
 
     .barber-card {
       background: var(--bg-card);
-      border: 1px solid var(--border);
+      border: 1px solid var(--border-strong);
       padding: 0;
       overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: box-shadow 0.25s ease, transform 0.25s ease;
+    }
+
+    .barber-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-3px);
     }
 
     /* IMAGE PLACEHOLDER: Replace this div with <img src="path/to/marcus.jpg" alt="Portrait of Marcus, master barber" /> */
     .barber-photo {
       aspect-ratio: 3 / 4;
-      background: linear-gradient(160deg, #2a2622 0%, #141210 100%);
-      border-bottom: 1px solid var(--border);
+      background: linear-gradient(165deg, var(--bg-muted) 0%, #d4cdc2 48%, var(--bg-warm) 100%);
+      border-bottom: 1px solid var(--border-strong);
       position: relative;
     }
 
@@ -562,10 +649,11 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 0.65rem;
-      letter-spacing: 0.25em;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.28em;
       text-transform: uppercase;
-      color: var(--text-subtle);
+      color: var(--text-muted);
     }
 
     .barber-body {
@@ -579,6 +667,7 @@
 
     .barber-role {
       font-size: 0.6875rem;
+      font-weight: 600;
       letter-spacing: 0.16em;
       text-transform: uppercase;
       color: var(--accent);
@@ -612,8 +701,8 @@
     /* IMAGE PLACEHOLDER: Replace with <img src="..." alt="Interior or cut example 1" /> */
     .gallery-item {
       min-height: 160px;
-      background: var(--bg-elevated);
-      border: 1px solid var(--border);
+      background: var(--bg-muted);
+      border: 2px solid var(--border-strong);
       position: relative;
     }
 
@@ -624,10 +713,11 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 0.65rem;
-      letter-spacing: 0.18em;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: var(--text-subtle);
+      color: var(--text-muted);
     }
 
     @media (max-width: 767px) {
@@ -676,34 +766,67 @@
     }
 
     .visit-card {
-      background: var(--bg-elevated);
-      border: 1px solid var(--border);
+      background: var(--bg-page);
+      border: 2px solid var(--ink);
       padding: var(--space-lg);
+      box-shadow: 8px 8px 0 var(--accent-soft);
     }
 
     .visit-card h3 {
       margin-top: 0;
     }
 
+    .visit-card a {
+      font-weight: 500;
+    }
+
     .lang-note {
       margin-top: var(--space-md);
-      font-size: 0.875rem;
+      font-size: 0.9375rem;
+      font-weight: 600;
       color: var(--accent);
+    }
+
+    .site-footer .footer-tagline {
+      margin: 0;
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      font-weight: 500;
     }
 
     /* CTA band */
     .cta-band {
-      background: var(--bg-elevated);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
+      background: var(--ink);
+      border-top: none;
+      border-bottom: none;
       padding: var(--space-2xl) 0;
       text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-band::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, transparent 40%, rgba(184, 134, 11, 0.08) 100%);
+      pointer-events: none;
+    }
+
+    .cta-band .wrap {
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-band .eyebrow {
+      color: var(--accent-bright);
     }
 
     .cta-band h2 {
       max-width: 20ch;
       margin-left: auto;
       margin-right: auto;
+      color: var(--bg-page);
     }
 
     .cta-band p {
@@ -711,6 +834,29 @@
       margin-left: auto;
       margin-right: auto;
       margin-bottom: var(--space-lg);
+      color: rgba(255, 255, 255, 0.82);
+    }
+
+    .cta-band .btn-primary {
+      background: var(--bg-page);
+      color: var(--ink);
+      box-shadow: none;
+    }
+
+    .cta-band .btn-primary:hover {
+      background: var(--accent-bright);
+      color: var(--ink);
+    }
+
+    .cta-band .btn-outline {
+      border-color: rgba(255, 255, 255, 0.55);
+      color: var(--bg-page);
+    }
+
+    .cta-band .btn-outline:hover {
+      border-color: var(--accent-bright);
+      color: var(--accent-bright);
+      background: rgba(255, 255, 255, 0.06);
     }
 
     .cta-actions {
@@ -741,13 +887,15 @@
       font-size: 1.35rem;
       font-weight: 600;
       margin-bottom: var(--space-sm);
+      color: var(--ink);
     }
 
     .footer-label {
       font-size: 0.6875rem;
+      font-weight: 600;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: var(--text-subtle);
+      color: var(--text-muted);
       margin: 0 0 var(--space-sm);
     }
 
@@ -764,18 +912,20 @@
     .footer-list a {
       color: var(--text-muted);
       text-decoration: none;
+      font-weight: 500;
     }
 
     .footer-list a:hover {
       color: var(--accent);
+      text-decoration: underline;
     }
 
     .footer-copy {
       margin-top: var(--space-xl);
       padding-top: var(--space-md);
-      border-top: 1px solid var(--border);
+      border-top: 1px solid var(--border-strong);
       font-size: 0.8125rem;
-      color: var(--text-subtle);
+      color: var(--text-muted);
     }
 
     /* Reveal */
@@ -1075,7 +1225,7 @@
       <div class="footer-grid">
         <div>
           <p class="footer-brand">Haus of Taperz</p>
-          <p style="font-size: 0.875rem;">Barbershop · Englewood, Colorado</p>
+          <p class="footer-tagline">Barbershop · Englewood, Colorado</p>
         </div>
         <div>
           <p class="footer-label">Navigate</p>
