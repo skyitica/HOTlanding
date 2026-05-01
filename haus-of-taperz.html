@@ -403,7 +403,7 @@
       margin-bottom: 0;
     }
 
-    /* Hero */
+    /* Hero: honeycomb evokes shop ceiling LEDs; softened for white/editorial */
     .hero {
       min-height: calc(100vh - var(--nav-h));
       display: grid;
@@ -411,7 +411,28 @@
       padding: var(--space-xl) 0 var(--space-2xl);
       position: relative;
       overflow: hidden;
-      background: linear-gradient(180deg, var(--bg-page) 0%, var(--bg-warm) 100%);
+      background-color: var(--bg-warm);
+      background-image: radial-gradient(
+          circle at 85% -5%,
+          rgba(184, 134, 11, 0.14) 0%,
+          transparent 42%
+        ),
+        linear-gradient(
+          to bottom,
+          rgba(255, 255, 255, 0.92) 0%,
+          rgba(255, 255, 255, 0.55) 38%,
+          rgba(246, 242, 235, 0.35) 70%,
+          transparent 100%
+        ),
+        url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'80.21'%20height%3D'81.00'%20viewBox%3D'0%200%2080.21%2081.00'%3E%3Cg%20fill%3D'none'%20stroke%3D'%23121110'%20stroke-width%3D'0.95'%20stroke-opacity%3D'0.14'%20stroke-linejoin%3D'round'%3E%3Cpolygon%20points%3D'21.05%2C2.00%2040.11%2C13.00%2040.11%2C35.00%2021.05%2C46.00%202.00%2C35.00%202.00%2C13.00'%2F%3E%3Cpolygon%20points%3D'59.16%2C2.00%2078.21%2C13.00%2078.21%2C35.00%2059.16%2C46.00%2040.11%2C35.00%2040.11%2C13.00'%2F%3E%3Cpolygon%20points%3D'40.11%2C35.00%2059.16%2C46.00%2059.16%2C68.00%2040.11%2C79.00%2021.05%2C68.00%2021.05%2C46.00'%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E"),
+        linear-gradient(180deg, var(--bg-page) 0%, var(--bg-warm) 100%);
+      background-repeat: no-repeat, no-repeat, repeat, no-repeat;
+      background-size:
+        auto,
+        auto,
+        clamp(148px, 22vw, 220px) auto,
+        auto;
+      background-position: top right, 0 0, center calc(-1 * var(--space-sm)), 0 0;
     }
 
     .hero::before {
@@ -423,25 +444,12 @@
       font-size: clamp(7rem, 22vw, 16rem);
       font-weight: 500;
       color: var(--ink);
-      opacity: 0.055;
+      opacity: 0.048;
       line-height: 0.82;
       pointer-events: none;
       letter-spacing: -0.03em;
     }
 
-    .hero::after {
-      content: "";
-      position: absolute;
-      top: 15%;
-      right: -10%;
-      width: 50%;
-      max-width: 480px;
-      aspect-ratio: 1;
-      background: radial-gradient(circle, var(--accent-glow) 0%, transparent 72%);
-      pointer-events: none;
-    }
-
-    .hero-main {
       position: relative;
       padding-left: var(--space-md);
       margin-left: 0;
@@ -688,13 +696,19 @@
 
     .services-compact {
       display: grid;
-      gap: var(--space-md);
+      gap: var(--space-lg);
+      grid-template-columns: 1fr;
     }
 
-    @media (min-width: 900px) {
+    @media (min-width: 700px) {
       .services-compact {
-        grid-template-columns: repeat(3, 1fr);
-        align-items: stretch;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (min-width: 1100px) {
+      .services-compact {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
       }
     }
 
@@ -1271,7 +1285,7 @@
         <div class="reveal services-intro">
           <p class="eyebrow">Menu</p>
           <h2 id="services-heading">Services at a glance</h2>
-          <p>Pricing snapshots below. Men's haircut rates vary by barber and cut: confirm when you book or in the chair. Full detail lives in Square when you reserve.</p>
+          <p>Everything is grouped by category so you can scan fast. Men's cuts are priced by barber in Square. Kid cuts, beard, color, perms, and add-ons are spelled out on their own cards.</p>
         </div>
 
         <div class="services-compact">
@@ -1304,50 +1318,63 @@
             </ul>
           </div>
 
-          <div class="service-card reveal" style="transition-delay: 0.05s;">
-            <h3>Kids · beards</h3>
-            <p class="fine-print">Kids ages 4 to 12. Beards booked at 30 min each.</p>
+          <div class="service-card reveal" style="transition-delay: 0.04s;">
+            <h3>Kid cuts</h3>
+            <p class="fine-print">Ages 4 to 12. Book the barber listed for that rate.</p>
             <ul class="price-list price-list--compact">
               <li>
-                <span><strong>Kids · Cooper</strong></span>
-                <span class="price-tag">45 min / varies</span>
+                <span><strong>Cooper</strong></span>
+                <span class="price-tag">45 min · varies</span>
               </li>
               <li>
-                <span><strong>Kids · Egan</strong></span>
+                <span><strong>Egan</strong></span>
                 <span class="price-tag">$30 · 45 min</span>
               </li>
               <li>
-                <span><strong>Kids · Johnny</strong></span>
+                <span><strong>Johnny</strong></span>
                 <span class="price-tag">$40 · 30 min+</span>
-              </li>
-              <li>
-                <span><strong>Beard · Cooper</strong></span>
-                <span class="price-tag">$35</span>
-              </li>
-              <li>
-                <span><strong>Beard · Johnny</strong></span>
-                <span class="price-tag">$30</span>
-              </li>
-              <li>
-                <span><strong>Beard · Egan</strong></span>
-                <span class="price-tag">$20</span>
               </li>
             </ul>
           </div>
 
-          <div class="service-card reveal" style="transition-delay: 0.1s;">
-            <h3>Color · perm · add-ons</h3>
-            <p class="fine-print">Color timing 30 min+. Add-ons stack on a cut.</p>
+          <div class="service-card reveal" style="transition-delay: 0.08s;">
+            <h3>Beards</h3>
+            <p class="fine-print">30 minutes each. Priced by barber.</p>
+            <ul class="price-list price-list--compact">
+              <li><span><strong>Cooper</strong></span><span class="price-tag">$35</span></li>
+              <li><span><strong>Johnny</strong></span><span class="price-tag">$30</span></li>
+              <li><span><strong>Egan</strong></span><span class="price-tag">$20</span></li>
+            </ul>
+          </div>
+
+          <div class="service-card reveal" style="transition-delay: 0.12s;">
+            <h3>Color</h3>
+            <p class="fine-print">Consultation shapes time and formula. Timing starts at 30 minutes; final block depends on service.</p>
             <ul class="price-list price-list--compact">
               <li>
-                <span><strong>Color</strong></span>
+                <span><strong>Color services</strong></span>
                 <span class="price-tag">Varies</span>
+                <span class="detail">Ask when you book or in the chair for a quote.</span>
               </li>
+            </ul>
+          </div>
+
+          <div class="service-card reveal" style="transition-delay: 0.16s;">
+            <h3>Perm</h3>
+            <p class="fine-print">Block out enough time off the calendar; this one does not hurry.</p>
+            <ul class="price-list price-list--compact">
               <li>
                 <span><strong>Perm</strong></span>
                 <span class="price-tag">$120</span>
-                <span class="detail">2 hr 30 min.</span>
+                <span class="detail">2 hr 30 min on the books.</span>
               </li>
+            </ul>
+          </div>
+
+          <div class="service-card reveal" style="transition-delay: 0.2s;">
+            <h3>Add-ons</h3>
+            <p class="fine-print">Stack on top of your cut or beard appointment when slots allow.</p>
+            <ul class="price-list price-list--compact">
               <li>
                 <span><strong>Lineup</strong></span>
                 <span class="price-tag">Varies</span>
@@ -1358,7 +1385,7 @@
               <li><span><strong>Hot towel</strong></span><span class="price-tag">$7</span><span class="detail">5 min.</span></li>
               <li><span><strong>Shampoo &amp; condition</strong></span><span class="price-tag">Varies</span><span class="detail">10 min.</span></li>
               <li><span><strong>Designs</strong></span><span class="price-tag">Varies</span><span class="detail">10 min.</span></li>
-              <li><span><strong>Black mask</strong></span><span class="price-tag">$10</span><span class="detail">15 min.</span></li>
+              <li><span><strong>Black mask treatment</strong></span><span class="price-tag">$10</span><span class="detail">15 min.</span></li>
               <li><span><strong>Face scrub</strong></span><span class="price-tag">$10</span><span class="detail">15 min.</span></li>
             </ul>
           </div>
