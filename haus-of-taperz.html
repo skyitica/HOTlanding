@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Haus of Taperz Barbershop in Englewood, Colorado. Precision cuts, luxury grooming, and tradition with a modern edge. Book online." />
-  <title>Haus of Taperz Barbershop | Englewood, CO</title>
+  <meta name="description" content="Book Haus Of Taperz in Englewood, CO. Men's cuts, kids, beard, color, add-ons. Request a callback or book online." />
+  <title>Haus Of Taperz | Englewood Barbershop | Book or Request</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Jost:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Jost:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
   <style>
     :root {
       --bg-page: #ffffff;
@@ -28,6 +28,7 @@
       --shadow-sm: 0 1px 0 rgba(18, 17, 16, 0.06), 0 8px 24px rgba(18, 17, 16, 0.06);
       --shadow-md: 0 20px 50px rgba(18, 17, 16, 0.1);
       --font-display: "EB Garamond", "Times New Roman", serif;
+      --font-brand: "Cinzel Decorative", "Times New Roman", serif;
       --font-sans: "Jost", system-ui, sans-serif;
       --space-xs: 0.5rem;
       --space-sm: 1rem;
@@ -130,12 +131,32 @@
     }
 
     .skip-link:focus {
+      left: 0.5rem;
+      top: 0.5rem;
       text-decoration: none;
     }
 
-    .skip-link:focus {
-      left: 0.5rem;
-      top: 0.5rem;
+    .brand-name {
+      font-family: var(--font-brand);
+      font-weight: 400;
+      letter-spacing: 0.06em;
+    }
+
+    .logo .brand-name {
+      font-size: clamp(1rem, 2.8vw, 1.35rem);
+    }
+
+    h1 .brand-name {
+      display: block;
+      font-weight: 700;
+      line-height: 1.05;
+    }
+
+    .footer-brand .brand-name {
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      font-size: 1.6rem;
+      line-height: 1.2;
     }
 
     .visually-hidden {
@@ -175,10 +196,7 @@
     }
 
     .logo {
-      font-family: var(--font-display);
-      font-size: 1.25rem;
-      font-weight: 600;
-      letter-spacing: 0.02em;
+      font-family: var(--font-sans);
       color: var(--ink);
       text-decoration: none;
       white-space: nowrap;
@@ -439,15 +457,17 @@
     .hero-grid {
       display: grid;
       grid-template-columns: 1fr;
-      gap: var(--space-xl);
+      gap: var(--space-lg);
       position: relative;
       z-index: 1;
+      align-items: start;
     }
 
     @media (min-width: 900px) {
       .hero-grid {
-        grid-template-columns: 1.1fr 0.9fr;
-        align-items: end;
+        grid-template-columns: minmax(0, 1.15fr) minmax(300px, 400px);
+        gap: var(--space-xl);
+        align-items: start;
       }
     }
 
@@ -456,8 +476,8 @@
       font-size: clamp(1.25rem, 2.5vw, 1.65rem);
       font-style: italic;
       color: var(--text-muted);
-      max-width: 32ch;
-      margin-bottom: var(--space-lg);
+      max-width: 36ch;
+      margin-bottom: var(--space-md);
     }
 
     .hero-meta {
@@ -475,46 +495,165 @@
       margin-top: var(--space-lg);
     }
 
-    .hero-aside {
-      background: var(--bg-page);
-      border: 1px solid var(--border-strong);
-      padding: var(--space-lg);
-      box-shadow: var(--shadow-sm);
+    .hero-trust {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-xs) var(--space-md);
+      margin-top: var(--space-md);
+      padding-top: var(--space-md);
+      border-top: 1px solid var(--border-strong);
+      list-style: none;
+      padding-left: 0;
+      margin-bottom: 0;
     }
 
-    @media (min-width: 900px) {
-      .hero-aside {
-        text-align: right;
-        align-self: end;
-        padding: var(--space-lg) var(--space-lg) var(--space-lg) var(--space-xl);
-      }
+    .hero-trust li {
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin: 0;
+      color: var(--accent);
+    }
 
-      .hero-actions.hero-actions--aside {
-        justify-content: flex-end;
-      }
+    .landing-note {
+      font-size: 0.8125rem;
+      color: var(--text-subtle);
+      margin-top: var(--space-sm);
+      max-width: 44ch;
+    }
+
+    /* Lead capture (above the fold) */
+    .lead-panel {
+      background: var(--bg-page);
+      border: 2px solid var(--ink);
+      padding: var(--space-md);
+      box-shadow: 10px 10px 0 var(--accent-soft);
+      margin-top: var(--space-xs);
     }
 
     @media (max-width: 899px) {
-      .hero-aside {
-        margin-top: var(--space-md);
+      .lead-panel {
+        margin-top: var(--space-sm);
       }
     }
 
-    .hero-stat {
+    .lead-panel h2 {
       font-family: var(--font-display);
-      font-size: clamp(3rem, 8vw, 4rem);
+      font-size: 1.25rem;
       font-weight: 600;
+      margin: 0 0 var(--space-xs);
       color: var(--ink);
-      line-height: 1;
-      margin-bottom: var(--space-xs);
+      letter-spacing: 0;
     }
 
-    .hero-stat-label {
-      font-size: 0.75rem;
+    .lead-panel > p {
+      margin: 0 0 var(--space-md);
+      font-size: 0.875rem;
+    }
+
+    .lead-form-note {
+      font-size: 0.8125rem;
+      color: var(--text-subtle);
+      margin: var(--space-sm) 0 0;
+    }
+
+    .lead-form .fields {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+    }
+
+    .lead-form .field-half {
+      display: grid;
+      gap: var(--space-sm);
+    }
+
+    @media (min-width: 480px) {
+      .lead-form .field-half {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .lead-form label {
+      display: block;
+      font-size: 0.6875rem;
       font-weight: 600;
-      letter-spacing: 0.2em;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: var(--text-muted);
+      color: var(--ink);
+      margin-bottom: 0.35rem;
+    }
+
+    .lead-form .optional-hint {
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: none;
+      color: var(--text-subtle);
+      font-size: 0.65rem;
+    }
+
+    .lead-form input[type="text"],
+    .lead-form input[type="tel"],
+    .lead-form input[type="email"],
+    .lead-form select,
+    .lead-form textarea {
+      width: 100%;
+      padding: 0.65rem 0.75rem;
+      font-family: var(--font-sans);
+      font-size: 0.9375rem;
+      color: var(--ink);
+      background: var(--bg-page);
+      border: 1px solid var(--border-strong);
+      border-radius: 0;
+    }
+
+    .lead-form input:focus-visible,
+    .lead-form select:focus-visible,
+    .lead-form textarea:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 1px;
+      border-color: var(--accent);
+    }
+
+    .lead-form textarea {
+      min-height: 4.5rem;
+      resize: vertical;
+    }
+
+    .lead-form {
+      position: relative;
+    }
+
+    .lead-form .hp-field {
+      position: absolute;
+      left: -9999px;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+    }
+
+    .lead-form .btn-wrap {
+      margin-top: var(--space-sm);
+    }
+
+    .lead-form .btn {
+      width: 100%;
+    }
+
+    @media (min-width: 480px) {
+      .lead-form .btn {
+        width: auto;
+      }
+    }
+
+    .lead-panel-footer {
+      margin-top: var(--space-md);
+      padding-top: var(--space-md);
+      border-top: 1px solid var(--border);
+      font-size: 0.75rem;
+      color: var(--text-subtle);
+      line-height: 1.5;
     }
 
     /* About */
@@ -541,24 +680,49 @@
       line-height: 1.45;
     }
 
-    /* Services */
+    /* Services (compact landing layout) */
     .services-intro {
-      max-width: 52ch;
-      margin-bottom: var(--space-xl);
+      max-width: 62ch;
+      margin-bottom: var(--space-lg);
     }
 
-    .service-block {
-      margin-bottom: var(--space-xl);
+    .services-compact {
+      display: grid;
+      gap: var(--space-md);
     }
 
-    .service-block:last-child {
-      margin-bottom: 0;
+    @media (min-width: 900px) {
+      .services-compact {
+        grid-template-columns: repeat(3, 1fr);
+        align-items: stretch;
+      }
     }
 
-    .service-block h3 {
-      margin-bottom: var(--space-md);
-      padding-bottom: var(--space-sm);
-      border-bottom: 1px solid var(--border);
+    .service-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-strong);
+      padding: var(--space-md);
+      box-shadow: var(--shadow-sm);
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .service-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.0625rem;
+      font-weight: 600;
+      margin: 0 0 var(--space-sm);
+      padding-bottom: var(--space-xs);
+      border-bottom: 3px solid var(--accent-bright);
+      letter-spacing: 0;
+    }
+
+    .service-card .fine-print {
+      font-size: 0.75rem;
+      color: var(--text-subtle);
+      margin: 0 0 var(--space-sm);
+      line-height: 1.45;
     }
 
     .price-list {
@@ -600,6 +764,21 @@
       letter-spacing: 0.06em;
       text-align: right;
       white-space: nowrap;
+    }
+
+    .price-list--compact li {
+      padding: 0.3rem 0;
+      font-size: 0.8125rem;
+      gap: var(--space-sm);
+    }
+
+    .price-list--compact .detail {
+      font-size: 0.72rem;
+      margin-top: -0.15rem;
+    }
+
+    .price-list--compact .price-tag {
+      font-size: 0.75rem;
     }
 
     /* Barbers */
@@ -883,10 +1062,7 @@
     }
 
     .footer-brand {
-      font-family: var(--font-display);
-      font-size: 1.35rem;
-      font-weight: 600;
-      margin-bottom: var(--space-sm);
+      margin: 0 0 var(--space-sm);
       color: var(--ink);
     }
 
@@ -946,7 +1122,7 @@
 
   <header class="site-header">
     <div class="nav-inner">
-      <a class="logo" href="#top" aria-label="Haus of Taperz, home">Haus of Taperz</a>
+      <a class="logo" href="#top" aria-label="Haus Of Taperz, home"><span class="brand-name">Haus Of Taperz</span></a>
       <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="nav-panel" id="nav-toggle">
         <span></span>
         <span></span>
@@ -956,10 +1132,9 @@
       <div class="nav-panel" id="nav-panel">
         <nav aria-label="Primary">
           <ul class="nav-links">
-            <li><a href="#about">About</a></li>
+            <li><a href="#lead">Request</a></li>
             <li><a href="#services">Services</a></li>
             <li><a href="#barbers">Barbers</a></li>
-            <li><a href="#gallery">Gallery</a></li>
             <li><a href="#hours">Hours</a></li>
           </ul>
         </nav>
@@ -974,22 +1149,106 @@
     <section class="hero" id="top" aria-labelledby="hero-heading">
       <div class="wrap hero-grid">
         <div class="hero-main reveal">
-          <p class="eyebrow">Englewood, Colorado</p>
-          <h1 id="hero-heading">Haus of Taperz</h1>
+          <p class="eyebrow">Englewood · Colorado</p>
+          <h1 id="hero-heading"><span class="brand-name">Haus Of Taperz</span></h1>
           <p class="hero-tagline">Where tradition meets modernity. Cuts that speak for themselves.</p>
+          <p class="landing-note">Walk in off an ad? Book online in one tap, or send the form: we call you back during shop hours.</p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="https://app.squareup.com/appointments/book/5anzstio9b7uv7/L8MZ9JRVK65YF/start" target="_blank" rel="noopener noreferrer">Book Online</a>
-            <a class="btn btn-outline" href="tel:+13039976793">Call (303) 997-6793</a>
+            <a class="btn btn-outline" href="#lead">Request a callback</a>
+            <a class="btn btn-outline" href="tel:+13039976793">Call Now</a>
           </div>
-          <p class="hero-meta">3966 S Broadway, Englewood, CO 80113 · Hablamos español</p>
+          <p class="hero-meta"><a href="https://maps.google.com/?q=3966+S+Broadway,+Englewood,+CO+80113">3966 S Broadway, Englewood, CO 80113</a> · Hablamos español</p>
+          <ul class="hero-trust" aria-label="Quick facts">
+            <li>4 barbers</li>
+            <li>Square booking</li>
+            <li>Open Tue · Thu to Sun</li>
+          </ul>
         </div>
-        <div class="hero-aside reveal" style="transition-delay: 0.12s;">
-          <div class="hero-stat">4</div>
-          <p class="hero-stat-label">Barbers on the roster<br />Tuesday through Sunday</p>
-          <p class="hero-meta" style="margin-top: var(--space-lg); max-width: 28ch; margin-left: auto;">
-            A calm room, sharp fades, and the kind of appointment you actually look forward to.
-          </p>
-        </div>
+
+        <aside class="lead-panel reveal" id="lead" style="transition-delay: 0.1s" aria-labelledby="lead-heading">
+          <h2 id="lead-heading">Tell us what you need</h2>
+          <p>We reply same day when the shop is open.</p>
+          <!-- Submissions: FormSubmit sends to hausoftaperz@gmail.com (confirm the address on first submission). After you host the site, add a hidden _next input with your thank-you page URL. -->
+          <form class="lead-form" id="lead-form" action="https://formsubmit.co/hausoftaperz@gmail.com" method="post">
+            <input type="hidden" name="_subject" value="Haus Of Taperz ad landing lead" />
+            <input type="hidden" name="_captcha" value="false" />
+            <p class="hp-field" aria-hidden="true">
+              <input type="text" name="_honey" tabindex="-1" autocomplete="off" value="" />
+            </p>
+            <div class="fields">
+              <div class="field-half">
+                <div>
+                  <label for="lead-name">Full name <span class="visually-hidden">required</span></label>
+                  <input id="lead-name" name="name" type="text" autocomplete="name" required placeholder="Your name" />
+                </div>
+                <div>
+                  <label for="lead-phone">Phone <span class="visually-hidden">required</span></label>
+                  <input id="lead-phone" name="phone" type="tel" autocomplete="tel" required placeholder="(303) 555-0100" />
+                </div>
+              </div>
+              <div>
+                <label for="lead-email">Email <span class="optional-hint">optional</span></label>
+                <input id="lead-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" />
+              </div>
+              <div>
+                <label for="lead-service">Primary service</label>
+                <select id="lead-service" name="primary_service" required>
+                  <option value="" disabled selected>Select one</option>
+                  <option value="Men's haircut">Men's haircut</option>
+                  <option value="Kid cut (ages 4 to 12)">Kid cut (ages 4 to 12)</option>
+                  <option value="Beard">Beard trim or shape</option>
+                  <option value="Color service">Color service</option>
+                  <option value="Perm">Perm</option>
+                  <option value="Lineup or add-on">Lineup or add-on</option>
+                  <option value="Not sure / Multiple">Not sure / multiple services</option>
+                </select>
+              </div>
+              <div>
+                <label for="lead-barber">Barber preference</label>
+                <select id="lead-barber" name="barber_preference">
+                  <option value="No preference" selected>No preference</option>
+                  <option value="First available">First available</option>
+                  <option value="Marcus">Marcus</option>
+                  <option value="Johnny">Johnny</option>
+                  <option value="Cooper">Cooper</option>
+                  <option value="Egan">Egan</option>
+                </select>
+              </div>
+              <div class="field-half">
+                <div>
+                  <label for="lead-day">Ideal day</label>
+                  <select id="lead-day" name="ideal_day">
+                    <option value="">Any</option>
+                    <option value="Tuesday">Tuesday</option>
+                    <option value="Thursday">Thursday</option>
+                    <option value="Friday">Friday</option>
+                    <option value="Saturday">Saturday</option>
+                    <option value="Sunday">Sunday</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="lead-time">Ideal time</label>
+                  <select id="lead-time" name="ideal_time">
+                    <option value="">Any</option>
+                    <option value="Morning (open to noon)">Morning</option>
+                    <option value="Midday (noon to 3)">Midday</option>
+                    <option value="Afternoon (3 to close)">Afternoon</option>
+                  </select>
+                </div>
+              </div>
+              <div>
+                <label for="lead-notes">Notes <span class="optional-hint">optional</span></label>
+                <textarea id="lead-notes" name="notes" placeholder="Hair goals, kids' ages, beard length, or questions"></textarea>
+              </div>
+              <div class="btn-wrap">
+                <button type="submit" class="btn btn-primary">Send request</button>
+              </div>
+            </div>
+          </form>
+          <p class="lead-form-note">Prefer not to wait? Square booking is instant.</p>
+          <p class="lead-panel-footer"><strong>Hours:</strong> Tue · Thu to Sat 10 to 6, Sun 10 to 5. Mon &amp; Wed closed.<br />Submitting this form is not a confirmed appointment. Use Book Online to lock a time.</p>
+        </aside>
       </div>
     </section>
 
@@ -1000,7 +1259,7 @@
           <h2 id="about-heading">Cut and finish, without the noise.</h2>
         </div>
         <div class="reveal" style="transition-delay: 0.1s;">
-          <blockquote class="about-pull">We built Haus of Taperz for guests who want a serious haircut in a relaxed room: clear timing, steady hands, and barbers who care how you walk out the door.</blockquote>
+          <blockquote class="about-pull">We built Haus Of Taperz for guests who want a serious haircut in a relaxed room: clear timing, steady hands, and barbers who care how you walk out the door.</blockquote>
           <p style="margin-top: var(--space-md);">Walk-ins welcome when capacity allows. When you book online, you lock the chair and the barber who fits your schedule. Kid cuts and beard work stay in the rotation right alongside men's cuts and color.</p>
           <p>If you prefer Spanish at the mirror, tell us when you arrive. We are happy to keep the whole visit comfortable in either language.</p>
         </div>
@@ -1011,94 +1270,98 @@
       <div class="wrap">
         <div class="reveal services-intro">
           <p class="eyebrow">Menu</p>
-          <h2 id="services-heading">Services and pricing</h2>
-          <p>Rates noted below. Men's haircuts labeled "price varies" depend on barber and service; confirm at booking or in the chair.</p>
+          <h2 id="services-heading">Services at a glance</h2>
+          <p>Pricing snapshots below. Men's haircut rates vary by barber and cut: confirm when you book or in the chair. Full detail lives in Square when you reserve.</p>
         </div>
 
-        <div class="service-block reveal">
-          <h3>Men's Haircuts</h3>
-          <p class="detail" style="margin-bottom: var(--space-md); color: var(--text-muted); font-size: 0.9375rem;">Price varies</p>
-          <ul class="price-list">
-            <li>
-              <span><strong>First Available Barber</strong></span>
-              <span class="price-tag">45 min</span>
-              <span class="detail">Whomever opens up first gets you squared away.</span>
-            </li>
-            <li>
-              <span><strong>Cooper</strong></span>
-              <span class="price-tag">10 min+</span>
-            </li>
-            <li>
-              <span><strong>Egan</strong></span>
-              <span class="price-tag">30 min+</span>
-            </li>
-            <li>
-              <span><strong>Johnny</strong></span>
-              <span class="price-tag">15 min+</span>
-            </li>
-            <li>
-              <span><strong>Marcus</strong></span>
-              <span class="price-tag">1 hr+</span>
-              <span class="detail">Premium full service: consultation, cut, fade, styling, optional hot towel, steamer, and straight razor.</span>
-            </li>
-          </ul>
-        </div>
+        <div class="services-compact">
+          <div class="service-card reveal">
+            <h3>Men's haircuts</h3>
+            <p class="fine-print">Price varies by barber and service.</p>
+            <ul class="price-list price-list--compact">
+              <li>
+                <span><strong>First available</strong></span>
+                <span class="price-tag">45 min</span>
+                <span class="detail">Next open chair.</span>
+              </li>
+              <li>
+                <span><strong>Cooper</strong></span>
+                <span class="price-tag">10 min+</span>
+              </li>
+              <li>
+                <span><strong>Egan</strong></span>
+                <span class="price-tag">30 min+</span>
+              </li>
+              <li>
+                <span><strong>Johnny</strong></span>
+                <span class="price-tag">15 min+</span>
+              </li>
+              <li>
+                <span><strong>Marcus · premium full</strong></span>
+                <span class="price-tag">1 hr+</span>
+                <span class="detail">Consultation, cut, fade, styling, optional hot towel, steamer, straight razor.</span>
+              </li>
+            </ul>
+          </div>
 
-        <div class="service-block reveal" style="transition-delay: 0.05s;">
-          <h3>Kid Cuts (ages 4 to 12)</h3>
-          <ul class="price-list">
-            <li>
-              <span><strong>Cooper</strong> · 45 min</span>
-              <span class="price-tag">Varies</span>
-            </li>
-            <li>
-              <span><strong>Egan</strong> · 45 min</span>
-              <span class="price-tag">$30</span>
-            </li>
-            <li>
-              <span><strong>Johnny</strong> · 30 min+</span>
-              <span class="price-tag">$40</span>
-            </li>
-          </ul>
-        </div>
+          <div class="service-card reveal" style="transition-delay: 0.05s;">
+            <h3>Kids · beards</h3>
+            <p class="fine-print">Kids ages 4 to 12. Beards booked at 30 min each.</p>
+            <ul class="price-list price-list--compact">
+              <li>
+                <span><strong>Kids · Cooper</strong></span>
+                <span class="price-tag">45 min / varies</span>
+              </li>
+              <li>
+                <span><strong>Kids · Egan</strong></span>
+                <span class="price-tag">$30 · 45 min</span>
+              </li>
+              <li>
+                <span><strong>Kids · Johnny</strong></span>
+                <span class="price-tag">$40 · 30 min+</span>
+              </li>
+              <li>
+                <span><strong>Beard · Cooper</strong></span>
+                <span class="price-tag">$35</span>
+              </li>
+              <li>
+                <span><strong>Beard · Johnny</strong></span>
+                <span class="price-tag">$30</span>
+              </li>
+              <li>
+                <span><strong>Beard · Egan</strong></span>
+                <span class="price-tag">$20</span>
+              </li>
+            </ul>
+          </div>
 
-        <div class="service-block reveal" style="transition-delay: 0.08s;">
-          <h3>Beards · 30 min each</h3>
-          <ul class="price-list">
-            <li><span><strong>Cooper</strong></span><span class="price-tag">$35</span></li>
-            <li><span><strong>Johnny</strong></span><span class="price-tag">$30</span></li>
-            <li><span><strong>Egan</strong></span><span class="price-tag">$20</span></li>
-          </ul>
-        </div>
-
-        <div class="service-block reveal" style="transition-delay: 0.11s;">
-          <h3>Color · Perm</h3>
-          <ul class="price-list">
-            <li>
-              <span><strong>Color Services</strong></span>
-              <span class="price-tag">Varies</span>
-              <span class="detail">30 minutes or more depending on tone and coverage.</span>
-            </li>
-            <li>
-              <span><strong>Perm</strong></span>
-              <span class="price-tag">$120</span>
-              <span class="detail">2 hr 30 min on the clock.</span>
-            </li>
-          </ul>
-        </div>
-
-        <div class="service-block reveal" style="transition-delay: 0.14s;">
-          <h3>Add-ons</h3>
-          <ul class="price-list">
-            <li><span><strong>Lineup</strong> · 15 min+</span><span class="price-tag">Varies</span></li>
-            <li><span><strong>Down Perm (Cowlicks)</strong> · 15 min</span><span class="price-tag">$10</span></li>
-            <li><span><strong>Eyebrows</strong> · 5 min</span><span class="price-tag">Varies</span></li>
-            <li><span><strong>Hot Towel</strong> · 5 min</span><span class="price-tag">$7</span></li>
-            <li><span><strong>Shampoo and Condition</strong> · 10 min</span><span class="price-tag">Varies</span></li>
-            <li><span><strong>Designs</strong> · 10 min</span><span class="price-tag">Varies</span></li>
-            <li><span><strong>Black Mask Treatment</strong> · 15 min</span><span class="price-tag">$10</span></li>
-            <li><span><strong>Face Scrub</strong> · 15 min</span><span class="price-tag">$10</span></li>
-          </ul>
+          <div class="service-card reveal" style="transition-delay: 0.1s;">
+            <h3>Color · perm · add-ons</h3>
+            <p class="fine-print">Color timing 30 min+. Add-ons stack on a cut.</p>
+            <ul class="price-list price-list--compact">
+              <li>
+                <span><strong>Color</strong></span>
+                <span class="price-tag">Varies</span>
+              </li>
+              <li>
+                <span><strong>Perm</strong></span>
+                <span class="price-tag">$120</span>
+                <span class="detail">2 hr 30 min.</span>
+              </li>
+              <li>
+                <span><strong>Lineup</strong></span>
+                <span class="price-tag">Varies</span>
+                <span class="detail">15 min+.</span>
+              </li>
+              <li><span><strong>Down perm (cowlicks)</strong></span><span class="price-tag">$10</span><span class="detail">15 min.</span></li>
+              <li><span><strong>Eyebrows</strong></span><span class="price-tag">Varies</span><span class="detail">5 min.</span></li>
+              <li><span><strong>Hot towel</strong></span><span class="price-tag">$7</span><span class="detail">5 min.</span></li>
+              <li><span><strong>Shampoo &amp; condition</strong></span><span class="price-tag">Varies</span><span class="detail">10 min.</span></li>
+              <li><span><strong>Designs</strong></span><span class="price-tag">Varies</span><span class="detail">10 min.</span></li>
+              <li><span><strong>Black mask</strong></span><span class="price-tag">$10</span><span class="detail">15 min.</span></li>
+              <li><span><strong>Face scrub</strong></span><span class="price-tag">$10</span><span class="detail">15 min.</span></li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
@@ -1112,7 +1375,7 @@
         </div>
         <div class="barbers-grid">
           <article class="barber-card reveal">
-            <!-- IMAGE PLACEHOLDER: <img src="marcus.jpg" alt="Marcus, founder and master barber at Haus of Taperz" /> -->
+            <!-- IMAGE PLACEHOLDER: <img src="marcus.jpg" alt="Marcus, founder and master barber at Haus Of Taperz" /> -->
             <div class="barber-photo" role="img" aria-label="Placeholder for Marcus photo"></div>
             <div class="barber-body">
               <h3>Marcus</h3>
@@ -1121,7 +1384,7 @@
             </div>
           </article>
           <article class="barber-card reveal" style="transition-delay: 0.06s;">
-            <!-- IMAGE PLACEHOLDER: <img src="johnny.jpg" alt="Johnny, barber at Haus of Taperz" /> -->
+            <!-- IMAGE PLACEHOLDER: <img src="johnny.jpg" alt="Johnny, barber at Haus Of Taperz" /> -->
             <div class="barber-photo" role="img" aria-label="Placeholder for Johnny photo"></div>
             <div class="barber-body">
               <h3>Johnny</h3>
@@ -1130,7 +1393,7 @@
             </div>
           </article>
           <article class="barber-card reveal" style="transition-delay: 0.12s;">
-            <!-- IMAGE PLACEHOLDER: <img src="cooper.jpg" alt="Cooper, barber and cosmetologist at Haus of Taperz" /> -->
+            <!-- IMAGE PLACEHOLDER: <img src="cooper.jpg" alt="Cooper, barber and cosmetologist at Haus Of Taperz" /> -->
             <div class="barber-photo" role="img" aria-label="Placeholder for Cooper photo"></div>
             <div class="barber-body">
               <h3>Cooper</h3>
@@ -1139,7 +1402,7 @@
             </div>
           </article>
           <article class="barber-card reveal" style="transition-delay: 0.18s;">
-            <!-- IMAGE PLACEHOLDER: <img src="egan.jpg" alt="Egan, barber at Haus of Taperz" /> -->
+            <!-- IMAGE PLACEHOLDER: <img src="egan.jpg" alt="Egan, barber at Haus Of Taperz" /> -->
             <div class="barber-photo" role="img" aria-label="Placeholder for Egan photo"></div>
             <div class="barber-body">
               <h3>Egan</h3>
@@ -1211,9 +1474,10 @@
       <div class="wrap reveal">
         <p class="eyebrow">Appointments</p>
         <h2 id="cta-heading">Reserve your chair</h2>
-        <p>Pick a barber and a time online. Prefer the phone? We pick up during open hours listed above.</p>
+        <p>New to the shop? Send a <a href="#lead">callback request</a> and we will ring you during open hours.</p>
         <div class="cta-actions">
           <a class="btn btn-primary" href="https://app.squareup.com/appointments/book/5anzstio9b7uv7/L8MZ9JRVK65YF/start" target="_blank" rel="noopener noreferrer">Book Online</a>
+          <a class="btn btn-outline" href="#lead">Request callback</a>
           <a class="btn btn-outline" href="tel:+13039976793">Call Now</a>
         </div>
       </div>
@@ -1224,15 +1488,17 @@
     <div class="wrap">
       <div class="footer-grid">
         <div>
-          <p class="footer-brand">Haus of Taperz</p>
+          <p class="footer-brand"><span class="brand-name">Haus Of Taperz</span></p>
           <p class="footer-tagline">Barbershop · Englewood, Colorado</p>
         </div>
         <div>
           <p class="footer-label">Navigate</p>
           <ul class="footer-list">
             <li><a href="#about">About</a></li>
+            <li><a href="#lead">Request</a></li>
             <li><a href="#services">Services</a></li>
             <li><a href="#barbers">Barbers</a></li>
+            <li><a href="#gallery">Gallery</a></li>
             <li><a href="#hours">Hours</a></li>
           </ul>
         </div>
@@ -1245,7 +1511,7 @@
           </ul>
         </div>
       </div>
-      <p class="footer-copy">© <span id="year"></span> Haus of Taperz Barbershop. All rights reserved.</p>
+      <p class="footer-copy">© <span id="year"></span> Haus Of Taperz Barbershop. All rights reserved.</p>
     </div>
   </footer>
 
