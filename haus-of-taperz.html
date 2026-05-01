@@ -1,0 +1,1150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Haus of Taperz Barbershop in Englewood, Colorado. Precision cuts, luxury grooming, and tradition with a modern edge. Book online." />
+  <title>Haus of Taperz Barbershop | Englewood, CO</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Jost:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-deep: #0f0e0c;
+      --bg-elevated: #181614;
+      --bg-card: #1e1c19;
+      --text-primary: #f4efe6;
+      --text-muted: #a39a8c;
+      --text-subtle: #6b655c;
+      --accent: #c9a227;
+      --accent-soft: rgba(201, 162, 39, 0.15);
+      --accent-glow: rgba(201, 162, 39, 0.35);
+      --border: rgba(244, 239, 230, 0.08);
+      --font-display: "EB Garamond", "Times New Roman", serif;
+      --font-sans: "Jost", system-ui, sans-serif;
+      --space-xs: 0.5rem;
+      --space-sm: 1rem;
+      --space-md: 1.5rem;
+      --space-lg: 2.5rem;
+      --space-xl: 4rem;
+      --space-2xl: 6rem;
+      --max: 1200px;
+      --nav-h: 4.25rem;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+      .reveal {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+      }
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--font-sans);
+      font-weight: 400;
+      font-size: 1.0625rem;
+      line-height: 1.55;
+      color: var(--text-primary);
+      background-color: var(--bg-deep);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Grain overlay */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.04;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+      text-underline-offset: 0.2em;
+    }
+
+    a:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: -9999px;
+      top: 0;
+      z-index: 100000;
+      padding: 0.75rem 1rem;
+      background: var(--accent);
+      color: var(--bg-deep);
+      font-weight: 600;
+    }
+
+    .skip-link:focus {
+      left: 0.5rem;
+      top: 0.5rem;
+    }
+
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    /* Nav */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      height: var(--nav-h);
+      background: rgba(15, 14, 12, 0.88);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 var(--space-md);
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-md);
+    }
+
+    .logo {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      color: var(--text-primary);
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .logo:hover {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: clamp(1rem, 3vw, 2rem);
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-links a {
+      font-size: 0.8125rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      text-decoration: none;
+    }
+
+    .nav-links a:hover {
+      color: var(--text-primary);
+      text-decoration: none;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.75rem 1.35rem;
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: var(--bg-deep);
+    }
+
+    .btn-primary:hover {
+      background: #d4ae32;
+      text-decoration: none;
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--text-primary);
+      border: 1px solid var(--border);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      padding: 0.5rem;
+      cursor: pointer;
+      color: var(--text-primary);
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 22px;
+      height: 1px;
+      background: currentColor;
+    }
+
+    @media (max-width: 900px) {
+      .nav-toggle {
+        display: flex;
+      }
+
+      .nav-panel {
+        position: fixed;
+        top: var(--nav-h);
+        left: 0;
+        right: 0;
+        background: var(--bg-deep);
+        border-bottom: 1px solid var(--border);
+        padding: var(--space-md);
+        transform: translateY(-100%);
+        opacity: 0;
+        visibility: hidden;
+        transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s;
+      }
+
+      .nav-panel.is-open {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .nav-links {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-sm);
+      }
+
+      .nav-cta-wrap {
+        margin-top: var(--space-md);
+      }
+    }
+
+    @media (min-width: 901px) {
+      .nav-panel {
+        display: flex;
+        align-items: center;
+        gap: clamp(1rem, 2vw, 2rem);
+      }
+
+      .nav-cta-wrap .btn {
+        padding: 0.65rem 1.1rem;
+      }
+    }
+
+    /* Layout */
+    .wrap {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 var(--space-md);
+    }
+
+    .section {
+      padding: var(--space-2xl) 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .section:first-of-type {
+      border-top: none;
+    }
+
+    .eyebrow {
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin: 0 0 var(--space-sm);
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: var(--font-display);
+      font-weight: 500;
+      line-height: 1.15;
+      margin: 0 0 var(--space-md);
+    }
+
+    h1 {
+      font-size: clamp(2.75rem, 8vw, 4.5rem);
+      letter-spacing: -0.02em;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 4vw, 2.75rem);
+      letter-spacing: -0.01em;
+    }
+
+    h3 {
+      font-size: 1.35rem;
+      font-weight: 600;
+    }
+
+    p {
+      margin: 0 0 var(--space-sm);
+      color: var(--text-muted);
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Hero */
+    .hero {
+      min-height: calc(100vh - var(--nav-h));
+      display: grid;
+      align-items: end;
+      padding: var(--space-xl) 0 var(--space-2xl);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 20%;
+      right: -15%;
+      width: 55%;
+      max-width: 520px;
+      aspect-ratio: 1;
+      background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+      pointer-events: none;
+      opacity: 0.5;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-xl);
+      position: relative;
+      z-index: 1;
+    }
+
+    @media (min-width: 900px) {
+      .hero-grid {
+        grid-template-columns: 1.1fr 0.9fr;
+        align-items: end;
+      }
+    }
+
+    .hero-tagline {
+      font-family: var(--font-display);
+      font-size: clamp(1.25rem, 2.5vw, 1.65rem);
+      font-style: italic;
+      color: var(--text-muted);
+      max-width: 28ch;
+      margin-bottom: var(--space-lg);
+    }
+
+    .hero-meta {
+      font-size: 0.875rem;
+      color: var(--text-subtle);
+      letter-spacing: 0.04em;
+      margin-top: var(--space-md);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+      margin-top: var(--space-lg);
+    }
+
+    .hero-aside {
+      padding-top: var(--space-lg);
+    }
+
+    @media (min-width: 900px) {
+      .hero-aside {
+        padding-top: 0;
+        text-align: right;
+        align-self: end;
+      }
+
+      .hero-actions.hero-actions--aside {
+        justify-content: flex-end;
+      }
+    }
+
+    .hero-stat {
+      font-family: var(--font-display);
+      font-size: 3.5rem;
+      font-weight: 500;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: var(--space-xs);
+    }
+
+    .hero-stat-label {
+      font-size: 0.75rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-subtle);
+    }
+
+    /* About */
+    .about-grid {
+      display: grid;
+      gap: var(--space-xl);
+    }
+
+    @media (min-width: 768px) {
+      .about-grid {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+        align-items: start;
+      }
+    }
+
+    .about-pull {
+      font-family: var(--font-display);
+      font-size: clamp(1.5rem, 2.5vw, 2rem);
+      color: var(--text-primary);
+      border-left: 2px solid var(--accent);
+      padding-left: var(--space-md);
+      margin: 0;
+      line-height: 1.4;
+    }
+
+    /* Services */
+    .services-intro {
+      max-width: 52ch;
+      margin-bottom: var(--space-xl);
+    }
+
+    .service-block {
+      margin-bottom: var(--space-xl);
+    }
+
+    .service-block:last-child {
+      margin-bottom: 0;
+    }
+
+    .service-block h3 {
+      margin-bottom: var(--space-md);
+      padding-bottom: var(--space-sm);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .price-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .price-list li {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: var(--space-md);
+      padding: var(--space-sm) 0;
+      border-bottom: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 0.9375rem;
+    }
+
+    .price-list li:last-child {
+      border-bottom: none;
+    }
+
+    .price-list strong {
+      color: var(--text-primary);
+      font-weight: 500;
+    }
+
+    .price-list .detail {
+      grid-column: 1 / -1;
+      font-size: 0.8125rem;
+      color: var(--text-subtle);
+      margin-top: -0.25rem;
+    }
+
+    .price-tag {
+      color: var(--accent);
+      font-weight: 600;
+      font-size: 0.8125rem;
+      letter-spacing: 0.06em;
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    /* Barbers */
+    .barbers-grid {
+      display: grid;
+      gap: var(--space-lg);
+    }
+
+    @media (min-width: 640px) {
+      .barbers-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .barbers-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .barber-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      padding: 0;
+      overflow: hidden;
+    }
+
+    /* IMAGE PLACEHOLDER: Replace this div with <img src="path/to/marcus.jpg" alt="Portrait of Marcus, master barber" /> */
+    .barber-photo {
+      aspect-ratio: 3 / 4;
+      background: linear-gradient(160deg, #2a2622 0%, #141210 100%);
+      border-bottom: 1px solid var(--border);
+      position: relative;
+    }
+
+    .barber-photo::after {
+      content: "Photo";
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.65rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--text-subtle);
+    }
+
+    .barber-body {
+      padding: var(--space-md);
+    }
+
+    .barber-body h3 {
+      font-size: 1.2rem;
+      margin-bottom: var(--space-xs);
+    }
+
+    .barber-role {
+      font-size: 0.6875rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: var(--space-sm);
+    }
+
+    .barber-body p {
+      font-size: 0.875rem;
+    }
+
+    /* Gallery */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-sm);
+    }
+
+    @media (min-width: 768px) {
+      .gallery-grid {
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(2, minmax(140px, 22vw));
+        gap: var(--space-md);
+      }
+
+      .gallery-item:nth-child(1) {
+        grid-column: span 2;
+        grid-row: span 2;
+      }
+    }
+
+    /* IMAGE PLACEHOLDER: Replace with <img src="..." alt="Interior or cut example 1" /> */
+    .gallery-item {
+      min-height: 160px;
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      position: relative;
+    }
+
+    .gallery-item::after {
+      content: "Gallery image";
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-subtle);
+    }
+
+    @media (max-width: 767px) {
+      .gallery-item:nth-child(n + 5) {
+        display: none;
+      }
+    }
+
+    /* Hours */
+    .hours-layout {
+      display: grid;
+      gap: var(--space-xl);
+    }
+
+    @media (min-width: 768px) {
+      .hours-layout {
+        grid-template-columns: 1fr 1fr;
+        align-items: start;
+      }
+    }
+
+    .hours-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9375rem;
+    }
+
+    .hours-table th {
+      text-align: left;
+      font-weight: 500;
+      color: var(--text-primary);
+      padding: var(--space-sm) 0;
+      border-bottom: 1px solid var(--border);
+      font-family: var(--font-sans);
+      letter-spacing: 0.04em;
+    }
+
+    .hours-table td {
+      padding: var(--space-sm) 0;
+      border-bottom: 1px solid var(--border);
+      color: var(--text-muted);
+    }
+
+    .hours-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .visit-card {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      padding: var(--space-lg);
+    }
+
+    .visit-card h3 {
+      margin-top: 0;
+    }
+
+    .lang-note {
+      margin-top: var(--space-md);
+      font-size: 0.875rem;
+      color: var(--accent);
+    }
+
+    /* CTA band */
+    .cta-band {
+      background: var(--bg-elevated);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: var(--space-2xl) 0;
+      text-align: center;
+    }
+
+    .cta-band h2 {
+      max-width: 20ch;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cta-band p {
+      max-width: 42ch;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: var(--space-lg);
+    }
+
+    .cta-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+      justify-content: center;
+    }
+
+    /* Footer */
+    .site-footer {
+      padding: var(--space-xl) 0 var(--space-lg);
+    }
+
+    .footer-grid {
+      display: grid;
+      gap: var(--space-lg);
+    }
+
+    @media (min-width: 640px) {
+      .footer-grid {
+        grid-template-columns: 1.2fr 1fr 1fr;
+      }
+    }
+
+    .footer-brand {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-weight: 600;
+      margin-bottom: var(--space-sm);
+    }
+
+    .footer-label {
+      font-size: 0.6875rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-subtle);
+      margin: 0 0 var(--space-sm);
+    }
+
+    .footer-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .footer-list li {
+      margin-bottom: 0.35rem;
+    }
+
+    .footer-list a {
+      color: var(--text-muted);
+      text-decoration: none;
+    }
+
+    .footer-list a:hover {
+      color: var(--accent);
+    }
+
+    .footer-copy {
+      margin-top: var(--space-xl);
+      padding-top: var(--space-md);
+      border-top: 1px solid var(--border);
+      font-size: 0.8125rem;
+      color: var(--text-subtle);
+    }
+
+    /* Reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="nav-inner">
+      <a class="logo" href="#top" aria-label="Haus of Taperz, home">Haus of Taperz</a>
+      <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="nav-panel" id="nav-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span class="visually-hidden">Menu</span>
+      </button>
+      <div class="nav-panel" id="nav-panel">
+        <nav aria-label="Primary">
+          <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#barbers">Barbers</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#hours">Hours</a></li>
+          </ul>
+        </nav>
+        <div class="nav-cta-wrap">
+          <a class="btn btn-primary" href="https://app.squareup.com/appointments/book/5anzstio9b7uv7/L8MZ9JRVK65YF/start" target="_blank" rel="noopener noreferrer">Book Now</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-heading">
+      <div class="wrap hero-grid">
+        <div class="hero-main reveal">
+          <p class="eyebrow">Englewood, Colorado</p>
+          <h1 id="hero-heading">Haus of Taperz</h1>
+          <p class="hero-tagline">Where tradition meets modernity. Cuts that speak for themselves.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="https://app.squareup.com/appointments/book/5anzstio9b7uv7/L8MZ9JRVK65YF/start" target="_blank" rel="noopener noreferrer">Book Online</a>
+            <a class="btn btn-outline" href="tel:+13039976793">Call (303) 997-6793</a>
+          </div>
+          <p class="hero-meta">3966 S Broadway, Englewood, CO 80113 · Hablamos español</p>
+        </div>
+        <div class="hero-aside reveal" style="transition-delay: 0.12s;">
+          <div class="hero-stat">4</div>
+          <p class="hero-stat-label">Barbers on the roster<br />Tuesday through Sunday</p>
+          <p class="hero-meta" style="margin-top: var(--space-lg); max-width: 28ch; margin-left: auto;">
+            A calm room, sharp fades, and the kind of appointment you actually look forward to.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about" aria-labelledby="about-heading">
+      <div class="wrap about-grid">
+        <div class="reveal">
+          <p class="eyebrow">The shop</p>
+          <h2 id="about-heading">Cut and finish, without the noise.</h2>
+        </div>
+        <div class="reveal" style="transition-delay: 0.1s;">
+          <blockquote class="about-pull">We built Haus of Taperz for guests who want a serious haircut in a relaxed room: clear timing, steady hands, and barbers who care how you walk out the door.</blockquote>
+          <p style="margin-top: var(--space-md);">Walk-ins welcome when capacity allows. When you book online, you lock the chair and the barber who fits your schedule. Kid cuts and beard work stay in the rotation right alongside men's cuts and color.</p>
+          <p>If you prefer Spanish at the mirror, tell us when you arrive. We are happy to keep the whole visit comfortable in either language.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="services" aria-labelledby="services-heading">
+      <div class="wrap">
+        <div class="reveal services-intro">
+          <p class="eyebrow">Menu</p>
+          <h2 id="services-heading">Services and pricing</h2>
+          <p>Rates noted below. Men's haircuts labeled "price varies" depend on barber and service; confirm at booking or in the chair.</p>
+        </div>
+
+        <div class="service-block reveal">
+          <h3>Men's Haircuts</h3>
+          <p class="detail" style="margin-bottom: var(--space-md); color: var(--text-muted); font-size: 0.9375rem;">Price varies</p>
+          <ul class="price-list">
+            <li>
+              <span><strong>First Available Barber</strong></span>
+              <span class="price-tag">45 min</span>
+              <span class="detail">Whomever opens up first gets you squared away.</span>
+            </li>
+            <li>
+              <span><strong>Cooper</strong></span>
+              <span class="price-tag">10 min+</span>
+            </li>
+            <li>
+              <span><strong>Egan</strong></span>
+              <span class="price-tag">30 min+</span>
+            </li>
+            <li>
+              <span><strong>Johnny</strong></span>
+              <span class="price-tag">15 min+</span>
+            </li>
+            <li>
+              <span><strong>Marcus</strong></span>
+              <span class="price-tag">1 hr+</span>
+              <span class="detail">Premium full service: consultation, cut, fade, styling, optional hot towel, steamer, and straight razor.</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="service-block reveal" style="transition-delay: 0.05s;">
+          <h3>Kid Cuts (ages 4 to 12)</h3>
+          <ul class="price-list">
+            <li>
+              <span><strong>Cooper</strong> · 45 min</span>
+              <span class="price-tag">Varies</span>
+            </li>
+            <li>
+              <span><strong>Egan</strong> · 45 min</span>
+              <span class="price-tag">$30</span>
+            </li>
+            <li>
+              <span><strong>Johnny</strong> · 30 min+</span>
+              <span class="price-tag">$40</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="service-block reveal" style="transition-delay: 0.08s;">
+          <h3>Beards · 30 min each</h3>
+          <ul class="price-list">
+            <li><span><strong>Cooper</strong></span><span class="price-tag">$35</span></li>
+            <li><span><strong>Johnny</strong></span><span class="price-tag">$30</span></li>
+            <li><span><strong>Egan</strong></span><span class="price-tag">$20</span></li>
+          </ul>
+        </div>
+
+        <div class="service-block reveal" style="transition-delay: 0.11s;">
+          <h3>Color · Perm</h3>
+          <ul class="price-list">
+            <li>
+              <span><strong>Color Services</strong></span>
+              <span class="price-tag">Varies</span>
+              <span class="detail">30 minutes or more depending on tone and coverage.</span>
+            </li>
+            <li>
+              <span><strong>Perm</strong></span>
+              <span class="price-tag">$120</span>
+              <span class="detail">2 hr 30 min on the clock.</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="service-block reveal" style="transition-delay: 0.14s;">
+          <h3>Add-ons</h3>
+          <ul class="price-list">
+            <li><span><strong>Lineup</strong> · 15 min+</span><span class="price-tag">Varies</span></li>
+            <li><span><strong>Down Perm (Cowlicks)</strong> · 15 min</span><span class="price-tag">$10</span></li>
+            <li><span><strong>Eyebrows</strong> · 5 min</span><span class="price-tag">Varies</span></li>
+            <li><span><strong>Hot Towel</strong> · 5 min</span><span class="price-tag">$7</span></li>
+            <li><span><strong>Shampoo and Condition</strong> · 10 min</span><span class="price-tag">Varies</span></li>
+            <li><span><strong>Designs</strong> · 10 min</span><span class="price-tag">Varies</span></li>
+            <li><span><strong>Black Mask Treatment</strong> · 15 min</span><span class="price-tag">$10</span></li>
+            <li><span><strong>Face Scrub</strong> · 15 min</span><span class="price-tag">$10</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="barbers" aria-labelledby="barbers-heading">
+      <div class="wrap">
+        <div class="reveal" style="margin-bottom: var(--space-xl);">
+          <p class="eyebrow">The team</p>
+          <h2 id="barbers-heading">Meet the barbers</h2>
+          <p style="max-width: 54ch;">Four chairs, four points of view. Book the person whose work matches how you want to look this week.</p>
+        </div>
+        <div class="barbers-grid">
+          <article class="barber-card reveal">
+            <!-- IMAGE PLACEHOLDER: <img src="marcus.jpg" alt="Marcus, founder and master barber at Haus of Taperz" /> -->
+            <div class="barber-photo" role="img" aria-label="Placeholder for Marcus photo"></div>
+            <div class="barber-body">
+              <h3>Marcus</h3>
+              <p class="barber-role">Founder / Master Barber</p>
+              <p>5+ years in the chair. Precision-focused and luxury-minded: consultation through finish, plus optional hot towel, steamer, and straight razor when you want the full treatment.</p>
+            </div>
+          </article>
+          <article class="barber-card reveal" style="transition-delay: 0.06s;">
+            <!-- IMAGE PLACEHOLDER: <img src="johnny.jpg" alt="Johnny, barber at Haus of Taperz" /> -->
+            <div class="barber-photo" role="img" aria-label="Placeholder for Johnny photo"></div>
+            <div class="barber-body">
+              <h3>Johnny</h3>
+              <p class="barber-role">Barber</p>
+              <p>Known for consistency, clean fades, and the small details that keep a line sharp week after week.</p>
+            </div>
+          </article>
+          <article class="barber-card reveal" style="transition-delay: 0.12s;">
+            <!-- IMAGE PLACEHOLDER: <img src="cooper.jpg" alt="Cooper, barber and cosmetologist at Haus of Taperz" /> -->
+            <div class="barber-photo" role="img" aria-label="Placeholder for Cooper photo"></div>
+            <div class="barber-body">
+              <h3>Cooper</h3>
+              <p class="barber-role">Barber / Cosmetologist</p>
+              <p>Dual-licensed, military-trained discipline, former Aveda educator. Technique you can feel in every section.</p>
+            </div>
+          </article>
+          <article class="barber-card reveal" style="transition-delay: 0.18s;">
+            <!-- IMAGE PLACEHOLDER: <img src="egan.jpg" alt="Egan, barber at Haus of Taperz" /> -->
+            <div class="barber-photo" role="img" aria-label="Placeholder for Egan photo"></div>
+            <div class="barber-body">
+              <h3>Egan</h3>
+              <p class="barber-role">Barber</p>
+              <p>Trend-forward and modern: the barber to see when your reference is fresh off the runway or the timeline.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="gallery" aria-labelledby="gallery-heading">
+      <div class="wrap">
+        <div class="reveal" style="margin-bottom: var(--space-lg);">
+          <p class="eyebrow">Inside the shop</p>
+          <h2 id="gallery-heading">Gallery</h2>
+          <p style="max-width: 48ch;">Replace the placeholders below with your photography: interior, fades, beard work, and the little details guests remember.</p>
+        </div>
+        <div class="gallery-grid" role="list">
+          <!-- IMAGE PLACEHOLDER: large hero tile -->
+          <div class="gallery-item reveal" role="listitem" aria-label="Gallery placeholder 1"></div>
+          <!-- IMAGE PLACEHOLDER -->
+          <div class="gallery-item reveal" style="transition-delay: 0.06s;" role="listitem" aria-label="Gallery placeholder 2"></div>
+          <!-- IMAGE PLACEHOLDER -->
+          <div class="gallery-item reveal" style="transition-delay: 0.12s;" role="listitem" aria-label="Gallery placeholder 3"></div>
+          <!-- IMAGE PLACEHOLDER -->
+          <div class="gallery-item reveal" style="transition-delay: 0.18s;" role="listitem" aria-label="Gallery placeholder 4"></div>
+          <!-- IMAGE PLACEHOLDER -->
+          <div class="gallery-item reveal" style="transition-delay: 0.24s;" role="listitem" aria-label="Gallery placeholder 5"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="hours" aria-labelledby="hours-heading">
+      <div class="wrap hours-layout">
+        <div class="reveal">
+          <p class="eyebrow">Plan your visit</p>
+          <h2 id="hours-heading">Hours and contact</h2>
+          <table class="hours-table" aria-describedby="hours-note">
+            <caption class="visually-hidden" id="hours-note">Weekly business hours</caption>
+            <thead>
+              <tr>
+                <th scope="col">Day</th>
+                <th scope="col">Hours</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Monday</td><td>Closed</td></tr>
+              <tr><td>Tuesday</td><td>10:00 a.m. to 6:00 p.m.</td></tr>
+              <tr><td>Wednesday</td><td>Closed</td></tr>
+              <tr><td>Thursday</td><td>10:00 a.m. to 6:00 p.m.</td></tr>
+              <tr><td>Friday</td><td>10:00 a.m. to 6:00 p.m.</td></tr>
+              <tr><td>Saturday</td><td>10:00 a.m. to 6:00 p.m.</td></tr>
+              <tr><td>Sunday</td><td>10:00 a.m. to 5:00 p.m.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <aside class="visit-card reveal" style="transition-delay: 0.1s;" aria-labelledby="visit-heading">
+          <h3 id="visit-heading">Visit</h3>
+          <p><a href="https://maps.google.com/?q=3966+S+Broadway,+Englewood,+CO+80113" target="_blank" rel="noopener noreferrer">3966 S Broadway<br />Englewood, CO 80113</a></p>
+          <p style="margin-top: var(--space-md);"><a href="tel:+13039976793">(303) 997-6793</a></p>
+          <p><a href="mailto:hausoftaperz@gmail.com">hausoftaperz@gmail.com</a></p>
+          <p class="lang-note">Hablamos español.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="cta-band" aria-labelledby="cta-heading">
+      <div class="wrap reveal">
+        <p class="eyebrow">Appointments</p>
+        <h2 id="cta-heading">Reserve your chair</h2>
+        <p>Pick a barber and a time online. Prefer the phone? We pick up during open hours listed above.</p>
+        <div class="cta-actions">
+          <a class="btn btn-primary" href="https://app.squareup.com/appointments/book/5anzstio9b7uv7/L8MZ9JRVK65YF/start" target="_blank" rel="noopener noreferrer">Book Online</a>
+          <a class="btn btn-outline" href="tel:+13039976793">Call Now</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <p class="footer-brand">Haus of Taperz</p>
+          <p style="font-size: 0.875rem;">Barbershop · Englewood, Colorado</p>
+        </div>
+        <div>
+          <p class="footer-label">Navigate</p>
+          <ul class="footer-list">
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#barbers">Barbers</a></li>
+            <li><a href="#hours">Hours</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer-label">Connect</p>
+          <ul class="footer-list">
+            <li><a href="https://app.squareup.com/appointments/book/5anzstio9b7uv7/L8MZ9JRVK65YF/start" target="_blank" rel="noopener noreferrer">Book</a></li>
+            <li><a href="tel:+13039976793">Phone</a></li>
+            <li><a href="mailto:hausoftaperz@gmail.com">Email</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="footer-copy">© <span id="year"></span> Haus of Taperz Barbershop. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var toggle = document.getElementById("nav-toggle");
+      var panel = document.getElementById("nav-panel");
+      var navLinks = panel ? panel.querySelectorAll('a[href^="#"]') : [];
+
+      if (toggle && panel) {
+        toggle.addEventListener("click", function () {
+          var open = panel.classList.toggle("is-open");
+          toggle.setAttribute("aria-expanded", open ? "true" : "false");
+        });
+
+        navLinks.forEach(function (link) {
+          link.addEventListener("click", function () {
+            if (window.matchMedia("(max-width: 900px)").matches) {
+              panel.classList.remove("is-open");
+              toggle.setAttribute("aria-expanded", "false");
+            }
+          });
+        });
+      }
+
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (!reduceMotion && "IntersectionObserver" in window) {
+        var observer = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("is-visible");
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { root: null, rootMargin: "0px 0px -8% 0px", threshold: 0.08 }
+        );
+        document.querySelectorAll(".reveal").forEach(function (el) {
+          observer.observe(el);
+        });
+      } else {
+        document.querySelectorAll(".reveal").forEach(function (el) {
+          el.classList.add("is-visible");
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
