@@ -827,12 +827,25 @@
       transform: translateY(-3px);
     }
 
-    /* IMAGE PLACEHOLDER: Replace this div with <img src="path/to/marcus.jpg" alt="Portrait of Marcus, master barber" /> */
     .barber-photo {
       aspect-ratio: 3 / 4;
       background: linear-gradient(165deg, var(--bg-muted) 0%, #d4cdc2 48%, var(--bg-warm) 100%);
       border-bottom: 1px solid var(--border-strong);
       position: relative;
+      overflow: hidden;
+    }
+
+    .barber-photo img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .barber-photo:has(img)::after {
+      display: none;
     }
 
     .barber-photo::after {
@@ -1176,7 +1189,7 @@
           <ul class="hero-trust" aria-label="Quick facts">
             <li>4 barbers</li>
             <li>Square booking</li>
-            <li>Open Tue · Thu to Sun</li>
+            <li>Open 7 days weekly</li>
           </ul>
         </div>
 
@@ -1234,7 +1247,9 @@
                   <label for="lead-day">Ideal day</label>
                   <select id="lead-day" name="ideal_day">
                     <option value="">Any</option>
+                    <option value="Monday">Monday</option>
                     <option value="Tuesday">Tuesday</option>
+                    <option value="Wednesday">Wednesday</option>
                     <option value="Thursday">Thursday</option>
                     <option value="Friday">Friday</option>
                     <option value="Saturday">Saturday</option>
@@ -1261,7 +1276,7 @@
             </div>
           </form>
           <p class="lead-form-note">Prefer not to wait? Square booking is instant.</p>
-          <p class="lead-panel-footer"><strong>Hours:</strong> Tue · Thu to Sat 10 to 6, Sun 10 to 5. Mon &amp; Wed closed.<br />Submitting this form is not a confirmed appointment. Use Book Online to lock a time.</p>
+          <p class="lead-panel-footer"><strong>Hours:</strong> Tuesday and Wednesday 10 a.m. to 4 p.m. All other days 9 a.m. to 5 p.m.<br />Submitting this form is not a confirmed appointment. Use Book Online to lock a time.</p>
         </aside>
       </div>
     </section>
@@ -1402,8 +1417,16 @@
         </div>
         <div class="barbers-grid">
           <article class="barber-card reveal">
-            <!-- IMAGE PLACEHOLDER: <img src="marcus.jpg" alt="Marcus, founder and master barber at Haus Of Taperz" /> -->
-            <div class="barber-photo" role="img" aria-label="Placeholder for Marcus photo"></div>
+            <div class="barber-photo">
+              <img
+                src="images/IMG_0195-166ad9ff-074d-42eb-9024-bb4bbe5ac390.png"
+                alt="Marcus, founder and master barber, at Haus Of Taperz"
+                width="900"
+                height="1200"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
             <div class="barber-body">
               <h3>Marcus</h3>
               <p class="barber-role">Founder / Master Barber</p>
@@ -1411,8 +1434,16 @@
             </div>
           </article>
           <article class="barber-card reveal" style="transition-delay: 0.06s;">
-            <!-- IMAGE PLACEHOLDER: <img src="johnny.jpg" alt="Johnny, barber at Haus Of Taperz" /> -->
-            <div class="barber-photo" role="img" aria-label="Placeholder for Johnny photo"></div>
+            <div class="barber-photo">
+              <img
+                src="images/005-F34633F7-3284-4ED0-ACEF-C9E34CA5B362-b692ccf5-aa79-4a90-acc1-28dfa519729d.png"
+                alt="Johnny, barber at Haus Of Taperz"
+                width="900"
+                height="1200"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
             <div class="barber-body">
               <h3>Johnny</h3>
               <p class="barber-role">Barber</p>
@@ -1420,8 +1451,16 @@
             </div>
           </article>
           <article class="barber-card reveal" style="transition-delay: 0.12s;">
-            <!-- IMAGE PLACEHOLDER: <img src="cooper.jpg" alt="Cooper, barber and cosmetologist at Haus Of Taperz" /> -->
-            <div class="barber-photo" role="img" aria-label="Placeholder for Cooper photo"></div>
+            <div class="barber-photo">
+              <img
+                src="images/006-cooper_pic-a935d518-5a4d-4f1e-b425-ffb9a9ea70b9.png"
+                alt="Cooper, barber and cosmetologist at Haus Of Taperz"
+                width="900"
+                height="1200"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
             <div class="barber-body">
               <h3>Cooper</h3>
               <p class="barber-role">Barber / Cosmetologist</p>
@@ -1429,8 +1468,16 @@
             </div>
           </article>
           <article class="barber-card reveal" style="transition-delay: 0.18s;">
-            <!-- IMAGE PLACEHOLDER: <img src="egan.jpg" alt="Egan, barber at Haus Of Taperz" /> -->
-            <div class="barber-photo" role="img" aria-label="Placeholder for Egan photo"></div>
+            <div class="barber-photo">
+              <img
+                src="images/007-E464E002-3A18-4B44-BF96-080024948F65-e7fc0a5a-b8a4-4454-99c2-5f22f7167bfb.png"
+                alt="Egan, barber at Haus Of Taperz"
+                width="900"
+                height="1200"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
             <div class="barber-body">
               <h3>Egan</h3>
               <p class="barber-role">Barber</p>
@@ -1477,13 +1524,13 @@
               </tr>
             </thead>
             <tbody>
-              <tr><td>Monday</td><td>Closed</td></tr>
-              <tr><td>Tuesday</td><td>10:00 a.m. to 6:00 p.m.</td></tr>
-              <tr><td>Wednesday</td><td>Closed</td></tr>
-              <tr><td>Thursday</td><td>10:00 a.m. to 6:00 p.m.</td></tr>
-              <tr><td>Friday</td><td>10:00 a.m. to 6:00 p.m.</td></tr>
-              <tr><td>Saturday</td><td>10:00 a.m. to 6:00 p.m.</td></tr>
-              <tr><td>Sunday</td><td>10:00 a.m. to 5:00 p.m.</td></tr>
+              <tr><td>Monday</td><td>9:00 a.m. to 5:00 p.m.</td></tr>
+              <tr><td>Tuesday</td><td>10:00 a.m. to 4:00 p.m.</td></tr>
+              <tr><td>Wednesday</td><td>10:00 a.m. to 4:00 p.m.</td></tr>
+              <tr><td>Thursday</td><td>9:00 a.m. to 5:00 p.m.</td></tr>
+              <tr><td>Friday</td><td>9:00 a.m. to 5:00 p.m.</td></tr>
+              <tr><td>Saturday</td><td>9:00 a.m. to 5:00 p.m.</td></tr>
+              <tr><td>Sunday</td><td>9:00 a.m. to 5:00 p.m.</td></tr>
             </tbody>
           </table>
         </div>
