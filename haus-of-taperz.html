@@ -485,19 +485,43 @@
     @media (min-width: 900px) {
       .hero-split {
         grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-        gap: clamp(var(--space-lg), 4vw, 3rem);
-        align-items: stretch;
-        align-content: stretch;
-        min-height: calc(100vh - var(--nav-h));
-        padding: var(--space-xl) 0 calc(var(--space-2xl) + env(safe-area-inset-bottom, 0))
+        gap: clamp(1rem, 3vw, 2rem);
+        align-items: start;
+        align-content: start;
+        min-height: 0;
+        padding: clamp(0.75rem, 2.5vh, 1.5rem) 0
+          clamp(0.75rem, 2.5vh, 1.5rem)
           clamp(var(--space-md), 4vw, 2.75rem);
       }
 
       .hero-copy {
         display: flex;
         flex-direction: column;
-        justify-content: center;
-        align-self: center;
+        justify-content: flex-start;
+        align-self: start;
+      }
+
+      /* Tighter rhythm so hero + questions form read as one above-the-fold lane */
+      .hero-tagline {
+        margin-bottom: var(--space-xs);
+      }
+
+      .landing-note {
+        margin-top: var(--space-xs);
+        font-size: 0.8125rem;
+      }
+
+      .hero-actions {
+        margin-top: var(--space-md);
+      }
+
+      .hero-meta {
+        margin-top: var(--space-sm);
+      }
+
+      .hero-trust {
+        margin-top: var(--space-sm);
+        padding-top: var(--space-sm);
       }
     }
 
@@ -577,20 +601,14 @@
     @media (min-width: 900px) {
       .lead-panel {
         margin-top: 0;
-        align-self: stretch;
+        align-self: start;
         display: flex;
         flex-direction: column;
         border-right: none;
         border-radius: 0;
         box-shadow: -10px 0 0 var(--accent-soft), -24px 0 48px rgba(18, 17, 16, 0.06);
-        padding: clamp(var(--space-md), 3vh, var(--space-xl))
-          max(var(--space-md), env(safe-area-inset-right, 0))
-          clamp(var(--space-md), 3vh, var(--space-xl))
-          clamp(var(--space-md), 3vw, var(--space-lg));
-        max-height: calc(100dvh - var(--nav-h) - var(--space-lg));
-        min-height: 0;
-        overflow-y: auto;
-        -webkit-overflow-scrolling: touch;
+        padding: 0.65rem max(0.75rem, env(safe-area-inset-right, 0)) 0.75rem
+          clamp(0.75rem, 2.5vw, 1rem);
       }
     }
 
@@ -601,6 +619,64 @@
       margin: 0 0 var(--space-xs);
       color: var(--ink);
       letter-spacing: 0;
+    }
+
+    @media (min-width: 900px) {
+      .lead-panel h2 {
+        font-size: 1.05rem;
+        margin-bottom: 0.35rem;
+      }
+
+      .lead-panel > p {
+        margin-bottom: 0.5rem;
+        font-size: 0.8125rem;
+        line-height: 1.45;
+      }
+
+      .lead-form .fields {
+        gap: 0.4rem;
+      }
+
+      .lead-form label {
+        margin-bottom: 0.22rem;
+        font-size: 0.625rem;
+      }
+
+      .lead-form input[type="text"],
+      .lead-form input[type="tel"],
+      .lead-form input[type="email"],
+      .lead-form select,
+      .lead-form textarea {
+        padding: 0.4rem 0.55rem;
+        font-size: 0.9375rem;
+      }
+
+      .lead-form textarea {
+        min-height: 2.75rem;
+        max-height: 5rem;
+        resize: vertical;
+      }
+
+      .lead-form-note {
+        margin-top: 0.35rem;
+        font-size: 0.75rem;
+      }
+
+      .lead-panel-footer {
+        margin-top: 0.45rem;
+        padding-top: 0.45rem;
+        font-size: 0.6875rem;
+        line-height: 1.4;
+      }
+
+      .lead-form .btn-wrap {
+        margin-top: 0.35rem;
+      }
+
+      .lead-panel .btn {
+        padding: 0.52rem 1rem;
+        font-size: 0.68rem;
+      }
     }
 
     .lead-panel > p {
@@ -675,10 +751,6 @@
     .lead-form textarea {
       min-height: 4.5rem;
       resize: vertical;
-    }
-
-    .lead-panel > p:first-of-type {
-      flex-shrink: 0;
     }
 
     .lead-form {
@@ -1256,7 +1328,7 @@
 
         <aside class="lead-panel reveal" id="lead" style="transition-delay: 0.1s" aria-labelledby="lead-heading">
           <h2 id="lead-heading">Questions before you book?</h2>
-          <p>Send this form and we will reach out by phone or email when the shop is open. This is not a guaranteed call order, just the fastest way to get a human answer.</p>
+          <p>We reply by phone or email during open hours—not a guaranteed call order, just the quickest way to reach a human.</p>
           <!-- Submissions: FormSubmit sends to hausoftaperz@gmail.com (confirm the address on first submission). After you host the site, add a hidden _next input with your thank-you page URL. -->
           <form class="lead-form" id="lead-form" action="https://formsubmit.co/hausoftaperz@gmail.com" method="post">
             <input type="hidden" name="_subject" value="Haus Of Taperz landing page inquiry" />
