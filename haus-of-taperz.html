@@ -437,19 +437,34 @@
       background-position: top right, 0 0, center calc(-1 * var(--space-sm)), 0 0;
     }
 
+    /* Decorative waterletter: keep left-weighted so the form column stays clean */
     .hero::before {
       content: "Taperz";
       position: absolute;
-      right: min(-4vw, -1rem);
+      left: max(-14vw, -4rem);
+      right: auto;
       top: clamp(4rem, 12vh, 7rem);
       font-family: var(--font-display);
-      font-size: clamp(7rem, 22vw, 16rem);
+      font-size: clamp(5rem, min(28vw, 22vh), 16rem);
       font-weight: 500;
       color: var(--ink);
       opacity: 0.048;
       line-height: 0.82;
       pointer-events: none;
       letter-spacing: -0.03em;
+      white-space: nowrap;
+      transform-origin: 0 0;
+    }
+
+    @media (min-width: 900px) {
+      .hero::before {
+        left: max(-12vw, -3.5rem);
+        top: clamp(4rem, 10vh, 6rem);
+        /* Cap size on wide desktops so glyphs don’t reach the midpoint / form lane */
+        font-size: clamp(4.25rem, 12vw, 7.5rem);
+        max-width: min(92%, calc(46vw - 1.5rem));
+        overflow: hidden;
+      }
     }
 
     .hero-main {
