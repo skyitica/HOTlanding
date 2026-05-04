@@ -1038,7 +1038,7 @@
       }
     }
 
-    /* IMAGE PLACEHOLDER: Replace with <img src="..." alt="Interior or cut example 1" /> */
+    /* Gallery tiles: add <img> or background-image per .gallery-item when you have photos. */
     .gallery-item {
       min-height: 160px;
       background: var(--bg-muted);
@@ -1350,12 +1350,12 @@
                 </div>
                 <div>
                   <label for="lead-phone">Phone <span class="visually-hidden">required</span></label>
-                  <input id="lead-phone" name="phone" type="tel" autocomplete="tel" required placeholder="(303) 555-0100" />
+                  <input id="lead-phone" name="phone" type="tel" autocomplete="tel" required placeholder="(303) 997-6793" />
                 </div>
               </div>
               <div>
                 <label for="lead-email">Email <span class="optional-hint">optional</span></label>
-                <input id="lead-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" />
+                <input id="lead-email" name="email" type="email" autocomplete="email" placeholder="you@email.com" />
               </div>
               <div>
                 <label for="lead-service">Primary service</label>
@@ -1616,21 +1616,21 @@
       </div>
     </section>
 
-    <!-- Gallery: empty tiles until you add images or change markup -->
+    <!-- Gallery -->
     <section class="section" id="gallery" aria-labelledby="gallery-heading">
       <div class="wrap">
         <div class="reveal" style="margin-bottom: var(--space-lg);">
           <p class="eyebrow">Inside the shop</p>
           <h2 id="gallery-heading">Gallery</h2>
-          <p style="max-width: 48ch;">Replace the placeholders below with your photography: interior, fades, beard work, and the little details guests remember.</p>
+          <p style="max-width: 48ch;">Photos from the floor, chair work, and the small details we obsess over will be posted here soon. Until then, book online or call and come see the room in person.</p>
         </div>
         <div class="gallery-grid" role="list">
-          <!-- Swap each .gallery-item for real photos (see gallery-grid styles). First tile spans two rows on wide screens. -->
-          <div class="gallery-item reveal" role="listitem" aria-label="Gallery placeholder 1"></div>
-          <div class="gallery-item reveal" style="transition-delay: 0.06s;" role="listitem" aria-label="Gallery placeholder 2"></div>
-          <div class="gallery-item reveal" style="transition-delay: 0.12s;" role="listitem" aria-label="Gallery placeholder 3"></div>
-          <div class="gallery-item reveal" style="transition-delay: 0.18s;" role="listitem" aria-label="Gallery placeholder 4"></div>
-          <div class="gallery-item reveal" style="transition-delay: 0.24s;" role="listitem" aria-label="Gallery placeholder 5"></div>
+          <!-- To add photos: put <img> inside each tile or set background-image in CSS. Large tile is the first child on wide screens. -->
+          <div class="gallery-item reveal" role="listitem" aria-label="Gallery photo 1, coming soon"></div>
+          <div class="gallery-item reveal" style="transition-delay: 0.06s;" role="listitem" aria-label="Gallery photo 2, coming soon"></div>
+          <div class="gallery-item reveal" style="transition-delay: 0.12s;" role="listitem" aria-label="Gallery photo 3, coming soon"></div>
+          <div class="gallery-item reveal" style="transition-delay: 0.18s;" role="listitem" aria-label="Gallery photo 4, coming soon"></div>
+          <div class="gallery-item reveal" style="transition-delay: 0.24s;" role="listitem" aria-label="Gallery photo 5, coming soon"></div>
         </div>
       </div>
     </section>
