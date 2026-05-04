@@ -1,15 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+  <!--
+    haus-of-taperz.html: single file, no build step. Upload as-is or open locally.
+
+    Edit copy in <main>. Edit layout and colors in the <style> block (search for section names like Hero, Services).
+
+    Form: posts via FormSubmit (see form action and comment above <form>). After you have a live URL, add a hidden input:
+    <input type="hidden" name="_next" value="https://yourdomain.com/thanks.html" />
+
+    Barber images: each <img> uses a long data:image/jpeg line so this file works even without an images folder.
+    Optional originals: images/marcus.png, johnny.png, cooper.png, egan.png
+
+    Booking: replace every app.squareup.com URL when you leave Square scheduling (search the file for squareup).
+  -->
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="description" content="Haus Of Taperz in Englewood, CO. Book online, call, or send a message for questions. Men's cuts, kids, beard, color, add-ons." />
   <title>Haus Of Taperz | Englewood Barbershop | Book or Message</title>
-  <!-- When you launch a new scheduler, replace every app.squareup.com link in this file once. -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Jost:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
   <style>
+    /* Design tokens and components; layout order follows <main> sections. */
     :root {
       --bg-page: #ffffff;
       --bg-warm: #f6f2eb;
@@ -435,36 +448,6 @@
         clamp(148px, 22vw, 220px) auto,
         auto;
       background-position: top right, 0 0, center calc(-1 * var(--space-sm)), 0 0;
-    }
-
-    /* Decorative waterletter: keep left-weighted so the form column stays clean */
-    .hero::before {
-      content: "Taperz";
-      position: absolute;
-      left: max(-14vw, -4rem);
-      right: auto;
-      top: clamp(4rem, 12vh, 7rem);
-      font-family: var(--font-display);
-      font-size: clamp(5rem, min(28vw, 22vh), 16rem);
-      font-weight: 500;
-      color: var(--ink);
-      opacity: 0.048;
-      line-height: 0.82;
-      pointer-events: none;
-      letter-spacing: -0.03em;
-      white-space: nowrap;
-      transform-origin: 0 0;
-    }
-
-    @media (min-width: 900px) {
-      .hero::before {
-        left: max(-12vw, -3.5rem);
-        top: clamp(4rem, 10vh, 6rem);
-        /* Cap size on wide desktops so glyphs don’t reach the midpoint / form lane */
-        font-size: clamp(4.25rem, 12vw, 7.5rem);
-        max-width: min(92%, calc(46vw - 1.5rem));
-        overflow: hidden;
-      }
     }
 
     .hero-main {
@@ -1298,6 +1281,7 @@
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
 
+  <!-- Sticky header and nav (breakpoint 900px: hamburger + slide-down panel) -->
   <header class="site-header">
     <div class="nav-inner">
       <a class="logo" href="#top" aria-label="Haus Of Taperz, home"><span class="brand-name">Haus Of Taperz</span></a>
@@ -1324,32 +1308,34 @@
   </header>
 
   <main id="main">
+    <!-- Sections in order: hero, services, barbers, about, gallery, hours, bottom CTA bar -->
+    <!-- Hero: intro copy + contact form (anchor id=lead) -->
     <section class="hero" id="top" aria-labelledby="hero-heading">
       <div class="hero-split">
         <div class="hero-copy">
-        <div class="hero-main reveal">
-          <p class="eyebrow">Englewood · Colorado</p>
-          <h1 id="hero-heading"><span class="brand-name">Haus Of Taperz</span></h1>
-          <p class="hero-tagline">Where tradition meets modernity. Cuts that speak for themselves.</p>
-          <p class="landing-note">New here? Use online booking for a time (link updates when we move off Square), or send a message below. The team follows up by phone or email during open hours.</p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="https://app.squareup.com/appointments/book/5anzstio9b7uv7/L8MZ9JRVK65YF/start" title="Current online scheduling link. The shop is moving to a new booking system soon." target="_blank" rel="noopener noreferrer">Book Online</a>
-            <a class="btn btn-outline" href="#lead">Send a message</a>
-            <a class="btn btn-outline" href="tel:+13039976793">Call Now</a>
+          <div class="hero-main reveal">
+            <p class="eyebrow">Englewood · Colorado</p>
+            <h1 id="hero-heading"><span class="brand-name">Haus Of Taperz</span></h1>
+            <p class="hero-tagline">Where tradition meets modernity. Cuts that speak for themselves.</p>
+            <p class="landing-note">New here? Use online booking for a time (link updates when we move off Square), or send a message below. The team follows up by phone or email during open hours.</p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="https://app.squareup.com/appointments/book/5anzstio9b7uv7/L8MZ9JRVK65YF/start" title="Current online scheduling link. The shop is moving to a new booking system soon." target="_blank" rel="noopener noreferrer">Book Online</a>
+              <a class="btn btn-outline" href="#lead">Send a message</a>
+              <a class="btn btn-outline" href="tel:+13039976793">Call Now</a>
+            </div>
+            <p class="hero-meta"><a href="https://maps.google.com/?q=3966+S+Broadway,+Englewood,+CO+80113">3966 S Broadway, Englewood, CO 80113</a> · Hablamos español</p>
+            <ul class="hero-trust" aria-label="Quick facts">
+              <li>4 barbers</li>
+              <li>Online booking (new system soon)</li>
+              <li>Open 7 days weekly</li>
+            </ul>
           </div>
-          <p class="hero-meta"><a href="https://maps.google.com/?q=3966+S+Broadway,+Englewood,+CO+80113">3966 S Broadway, Englewood, CO 80113</a> · Hablamos español</p>
-          <ul class="hero-trust" aria-label="Quick facts">
-            <li>4 barbers</li>
-            <li>Online booking (new system soon)</li>
-            <li>Open 7 days weekly</li>
-          </ul>
-        </div>
         </div>
 
         <aside class="lead-panel reveal" id="lead" style="transition-delay: 0.1s" aria-labelledby="lead-heading">
           <h2 id="lead-heading">Questions before you book?</h2>
-          <p>We reply by phone or email during open hours—not a guaranteed call order, just the quickest way to reach a human.</p>
-          <!-- Submissions: FormSubmit sends to hausoftaperz@gmail.com (confirm the address on first submission). After you host the site, add a hidden _next input with your thank-you page URL. -->
+          <p>We reply by phone or email during open hours. Not a guaranteed call order, just the quickest way to reach a human.</p>
+          <!-- FormSubmit inbox matches the form action URL. First real submit confirms it. Add name="_next" thank-you URL when the site is hosted. -->
           <form class="lead-form" id="lead-form" action="https://formsubmit.co/hausoftaperz@gmail.com" method="post">
             <input type="hidden" name="_subject" value="Haus Of Taperz landing page inquiry" />
             <input type="hidden" name="_captcha" value="false" />
@@ -1419,6 +1405,7 @@
       </div>
     </section>
 
+    <!-- Services (pricing cards) -->
     <section class="section" id="services" aria-labelledby="services-heading">
       <div class="wrap">
         <div class="reveal services-intro">
@@ -1532,6 +1519,7 @@
       </div>
     </section>
 
+    <!-- Barbers -->
     <section class="section" id="barbers" aria-labelledby="barbers-heading">
       <div class="wrap">
         <div class="reveal" style="margin-bottom: var(--space-xl);">
@@ -1540,7 +1528,7 @@
           <p style="max-width: 54ch;">Four chairs, four points of view. Book the person whose work matches how you want to look this week.</p>
         </div>
         <div class="barbers-grid">
-          <!-- Barber photos: inlined as JPEG data URIs (works if you copy only this .html to Downloads). Source files: images/*.png -->
+          <!-- Barber cards: see top-of-file note for the long data:image lines. Optional files: images/*.png -->
           <article class="barber-card reveal">
             <div class="barber-photo">
               <img
@@ -1613,6 +1601,7 @@
       </div>
     </section>
 
+    <!-- About (the shop) -->
     <section class="section" id="about" aria-labelledby="about-heading">
       <div class="wrap about-grid">
         <div class="reveal">
@@ -1627,6 +1616,7 @@
       </div>
     </section>
 
+    <!-- Gallery: empty tiles until you add images or change markup -->
     <section class="section" id="gallery" aria-labelledby="gallery-heading">
       <div class="wrap">
         <div class="reveal" style="margin-bottom: var(--space-lg);">
@@ -1635,20 +1625,17 @@
           <p style="max-width: 48ch;">Replace the placeholders below with your photography: interior, fades, beard work, and the little details guests remember.</p>
         </div>
         <div class="gallery-grid" role="list">
-          <!-- IMAGE PLACEHOLDER: large hero tile -->
+          <!-- Swap each .gallery-item for real photos (see gallery-grid styles). First tile spans two rows on wide screens. -->
           <div class="gallery-item reveal" role="listitem" aria-label="Gallery placeholder 1"></div>
-          <!-- IMAGE PLACEHOLDER -->
           <div class="gallery-item reveal" style="transition-delay: 0.06s;" role="listitem" aria-label="Gallery placeholder 2"></div>
-          <!-- IMAGE PLACEHOLDER -->
           <div class="gallery-item reveal" style="transition-delay: 0.12s;" role="listitem" aria-label="Gallery placeholder 3"></div>
-          <!-- IMAGE PLACEHOLDER -->
           <div class="gallery-item reveal" style="transition-delay: 0.18s;" role="listitem" aria-label="Gallery placeholder 4"></div>
-          <!-- IMAGE PLACEHOLDER -->
           <div class="gallery-item reveal" style="transition-delay: 0.24s;" role="listitem" aria-label="Gallery placeholder 5"></div>
         </div>
       </div>
     </section>
 
+    <!-- Hours + visit sidebar -->
     <section class="section" id="hours" aria-labelledby="hours-heading">
       <div class="wrap hours-layout">
         <div class="reveal">
@@ -1683,6 +1670,7 @@
       </div>
     </section>
 
+    <!-- Bottom call-to-action strip -->
     <section class="cta-band" aria-labelledby="cta-heading">
       <div class="wrap reveal">
         <p class="eyebrow">Appointments</p>
@@ -1697,6 +1685,7 @@
     </section>
   </main>
 
+  <!-- Footer -->
   <footer class="site-footer">
     <div class="wrap">
       <div class="footer-grid">
@@ -1729,6 +1718,7 @@
   </footer>
 
   <script>
+    /* Mobile nav toggle, scroll-in animations (.reveal), footer copyright year. */
     (function () {
       var toggle = document.getElementById("nav-toggle");
       var panel = document.getElementById("nav-panel");
