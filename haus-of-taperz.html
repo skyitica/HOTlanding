@@ -475,6 +475,38 @@
       min-width: 0;
     }
 
+    .hero-booking {
+      margin-top: var(--space-lg);
+      min-width: 0;
+    }
+
+    .hero-booking-label {
+      display: block;
+      margin: 0 0 var(--space-sm);
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    @media (min-width: 900px) {
+      .hero-split {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 0.92fr);
+        gap: clamp(1rem, 3vw, 2rem);
+        align-items: start;
+      }
+
+      .hero-copy {
+        max-width: 100%;
+      }
+
+      .hero-booking {
+        margin-top: 0;
+      }
+    }
+
     .hero-meta a {
       color: var(--accent);
       font-weight: 500;
@@ -985,7 +1017,7 @@
       flex-wrap: wrap;
       gap: var(--space-sm);
       justify-content: center;
-      margin-bottom: var(--space-lg);
+      margin-bottom: 0;
     }
 
     .booking-embed {
@@ -1142,7 +1174,13 @@
             </ul>
           </div>
         </div>
-
+        <aside class="hero-booking reveal" style="transition-delay: 0.1s;" aria-label="Online booking">
+          <p class="hero-booking-label">Book now</p>
+          <div class="booking-embed" aria-label="Square appointments booking">
+            <iframe src="https://app.squareup.com/appointments/book/5anzstio9b7uv7/L8MZ9JRVK65YF/start" title="Book an appointment at Haus Of Taperz with Square" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+          </div>
+          <p class="booking-fallback">Having trouble loading the booking calendar? <a href="https://app.squareup.com/appointments/book/5anzstio9b7uv7/L8MZ9JRVK65YF/start" target="_blank" rel="noopener noreferrer">Open Square booking in a new tab</a>.</p>
+        </aside>
       </div>
     </section>
 
@@ -1415,15 +1453,11 @@
       <div class="wrap reveal">
         <p class="eyebrow">Appointments</p>
         <h2 id="cta-heading">Reserve your chair</h2>
-        <p>Book your appointment right here. If you need a quick answer first, call the shop and we can help.</p>
+        <p>Still deciding? Lock in your preferred time online or call and we will get you set.</p>
         <div class="cta-actions">
           <a class="btn btn-primary" href="https://app.squareup.com/appointments/book/5anzstio9b7uv7/L8MZ9JRVK65YF/start" target="_blank" rel="noopener noreferrer">Book Online</a>
           <a class="btn btn-outline" href="tel:+13039976793">Call Now</a>
         </div>
-        <div class="booking-embed" aria-label="Square appointments booking">
-          <iframe src="https://app.squareup.com/appointments/book/5anzstio9b7uv7/L8MZ9JRVK65YF/start" title="Book an appointment at Haus Of Taperz with Square" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
-        </div>
-        <p class="booking-fallback">Having trouble loading the booking calendar? <a href="https://app.squareup.com/appointments/book/5anzstio9b7uv7/L8MZ9JRVK65YF/start" target="_blank" rel="noopener noreferrer">Open Square booking in a new tab</a>.</p>
       </div>
     </section>
   </main>
