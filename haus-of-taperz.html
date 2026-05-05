@@ -33,10 +33,10 @@
       --text-primary: #f0e9dc;
       --text-muted: #a8a094;
       --text-subtle: #8f877c;
-      --accent: #b8860b;
-      --accent-bright: #b8860b;
-      --accent-soft: rgba(184, 134, 11, 0.14);
-      --accent-glow: rgba(184, 134, 11, 0.22);
+      --accent: #b08b57;
+      --accent-bright: #cfad7b;
+      --accent-soft: rgba(176, 139, 87, 0.12);
+      --accent-glow: rgba(176, 139, 87, 0.2);
       --border: rgba(240, 233, 220, 0.14);
       --border-strong: rgba(240, 233, 220, 0.24);
       --shadow-sm: 0 1px 0 rgba(0, 0, 0, 0.32), 0 8px 24px rgba(0, 0, 0, 0.34);
@@ -454,74 +454,25 @@
       position: relative;
       padding-left: var(--space-md);
       margin-left: 0;
-      border-left: 4px solid var(--accent-bright);
+      border-left: 4px solid var(--border-strong);
       box-decoration-break: clone;
     }
 
-    /* Full-bleed top on desktop keeps two columns edge-to-ish-edge; gutters come from symmetric horizontal padding below */
+    /* Hero lane */
     .hero-split {
-      flex: 1;
-      width: 100%;
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: var(--space-lg);
-      align-items: start;
+      width: min(var(--max), 100%);
+      margin: 0 auto;
       position: relative;
       z-index: 1;
       padding: var(--space-xl)
         max(var(--space-md), env(safe-area-inset-right, 0))
         calc(var(--space-2xl) + env(safe-area-inset-bottom, 0))
         max(var(--space-md), env(safe-area-inset-left, 0));
-      min-height: 0;
     }
 
     .hero-copy {
-      max-width: min(620px, 100%);
+      max-width: min(720px, 100%);
       min-width: 0;
-    }
-
-    @media (min-width: 900px) {
-      .hero-split {
-        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-        gap: clamp(1rem, 3vw, 2rem);
-        align-items: start;
-        align-content: start;
-        min-height: 0;
-        padding: clamp(0.75rem, 2.5vh, 1.5rem)
-          max(clamp(var(--space-md), 3vw, 2.75rem), env(safe-area-inset-right, 0))
-          clamp(0.75rem, 2.5vh, 1.5rem)
-          max(clamp(var(--space-md), 4vw, 2.75rem), env(safe-area-inset-left, 0));
-      }
-
-      .hero-copy {
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-self: start;
-      }
-
-      /* Tighter rhythm so hero + questions form read as one above-the-fold lane */
-      .hero-tagline {
-        margin-bottom: var(--space-xs);
-      }
-
-      .landing-note {
-        margin-top: var(--space-xs);
-        font-size: 0.8125rem;
-      }
-
-      .hero-actions {
-        margin-top: var(--space-md);
-      }
-
-      .hero-meta {
-        margin-top: var(--space-sm);
-      }
-
-      .hero-trust {
-        margin-top: var(--space-sm);
-        padding-top: var(--space-sm);
-      }
     }
 
     .hero-meta a {
@@ -571,224 +522,7 @@
       letter-spacing: 0.16em;
       text-transform: uppercase;
       margin: 0;
-      color: var(--accent);
-    }
-
-    .landing-note {
-      font-size: 0.8125rem;
       color: var(--text-subtle);
-      margin-top: var(--space-sm);
-      max-width: 44ch;
-    }
-
-    /* Lead capture (above the fold) */
-    .lead-panel {
-      background: var(--bg-page);
-      border: 2px solid var(--ink);
-      padding: var(--space-md);
-      box-shadow: 10px 10px 0 var(--accent-soft);
-      margin-top: var(--space-xs);
-      min-width: 0;
-    }
-
-    @media (max-width: 899px) {
-      .lead-panel {
-        margin-top: var(--space-sm);
-      }
-    }
-
-    @media (min-width: 900px) {
-      .lead-panel {
-        margin-top: 0;
-        align-self: start;
-        display: flex;
-        flex-direction: column;
-        border-right: 2px solid var(--ink);
-        border-radius: 0;
-        box-shadow: 10px 10px 0 var(--accent-soft);
-        padding: 0.65rem max(0.75rem, env(safe-area-inset-right, 0)) 0.75rem
-          clamp(0.75rem, 2.5vw, 1rem);
-      }
-    }
-
-    .lead-panel h2 {
-      font-family: var(--font-display);
-      font-size: 1.25rem;
-      font-weight: 600;
-      margin: 0 0 var(--space-xs);
-      color: var(--ink);
-      letter-spacing: 0;
-    }
-
-    @media (min-width: 900px) {
-      .lead-panel h2 {
-        font-size: 1.05rem;
-        margin-bottom: 0.35rem;
-      }
-
-      .lead-panel > p {
-        margin-bottom: 0.5rem;
-        font-size: 0.8125rem;
-        line-height: 1.45;
-      }
-
-      .lead-form .fields {
-        gap: 0.4rem;
-      }
-
-      .lead-form label {
-        margin-bottom: 0.22rem;
-        font-size: 0.625rem;
-      }
-
-      .lead-form input[type="text"],
-      .lead-form input[type="tel"],
-      .lead-form input[type="email"],
-      .lead-form input[type="date"],
-      .lead-form input[type="time"],
-      .lead-form select,
-      .lead-form textarea {
-        padding: 0.4rem 0.55rem;
-        font-size: 0.9375rem;
-      }
-
-      .lead-form textarea {
-        min-height: 2.75rem;
-        max-height: 5rem;
-        resize: vertical;
-      }
-
-      .lead-form-note {
-        margin-top: 0.35rem;
-        font-size: 0.75rem;
-      }
-
-      .lead-panel-footer {
-        margin-top: 0.45rem;
-        padding-top: 0.45rem;
-        font-size: 0.6875rem;
-        line-height: 1.4;
-      }
-
-      .lead-form .btn-wrap {
-        margin-top: 0.35rem;
-      }
-
-      .lead-panel .btn {
-        padding: 0.52rem 1rem;
-        font-size: 0.68rem;
-      }
-    }
-
-    .lead-panel > p {
-      margin: 0 0 var(--space-md);
-      font-size: 0.875rem;
-    }
-
-    .lead-form-note {
-      font-size: 0.8125rem;
-      color: var(--text-subtle);
-      margin: var(--space-sm) 0 0;
-    }
-
-    .lead-form .fields {
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-sm);
-    }
-
-    .lead-form .field-half {
-      display: grid;
-      gap: var(--space-sm);
-    }
-
-    @media (min-width: 480px) {
-      .lead-form .field-half {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-
-    .lead-form label {
-      display: block;
-      font-size: 0.6875rem;
-      font-weight: 600;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--ink);
-      margin-bottom: 0.35rem;
-    }
-
-    .lead-form .optional-hint {
-      font-weight: 500;
-      letter-spacing: 0.06em;
-      text-transform: none;
-      color: var(--text-subtle);
-      font-size: 0.65rem;
-    }
-
-    .lead-form input[type="text"],
-    .lead-form input[type="tel"],
-    .lead-form input[type="email"],
-    .lead-form input[type="date"],
-    .lead-form input[type="time"],
-    .lead-form select,
-    .lead-form textarea {
-      width: 100%;
-      padding: 0.65rem 0.75rem;
-      font-family: var(--font-sans);
-      font-size: 1rem;
-      color: var(--ink);
-      background: var(--bg-page);
-      border: 1px solid var(--border-strong);
-      border-radius: 0;
-    }
-
-    .lead-form input:focus-visible,
-    .lead-form select:focus-visible,
-    .lead-form textarea:focus-visible {
-      outline: 2px solid var(--accent);
-      outline-offset: 1px;
-      border-color: var(--accent);
-    }
-
-    .lead-form textarea {
-      min-height: 4.5rem;
-      resize: vertical;
-    }
-
-    .lead-form {
-      position: relative;
-    }
-
-    .lead-form .hp-field {
-      position: absolute;
-      left: -9999px;
-      width: 1px;
-      height: 1px;
-      overflow: hidden;
-    }
-
-    .lead-form .btn-wrap {
-      margin-top: var(--space-sm);
-    }
-
-    .lead-form .btn {
-      width: 100%;
-    }
-
-    @media (min-width: 480px) {
-      .lead-form .btn {
-        width: auto;
-      }
-    }
-
-    .lead-panel-footer {
-      margin-top: var(--space-md);
-      padding-top: var(--space-md);
-      border-top: 1px solid var(--border);
-      font-size: 0.75rem;
-      color: var(--text-subtle);
-      line-height: 1.5;
     }
 
     /* About */
@@ -809,7 +543,7 @@
       font-size: clamp(1.5rem, 2.5vw, 2rem);
       font-weight: 500;
       color: var(--ink);
-      border-left: 4px solid var(--accent-bright);
+      border-left: 4px solid var(--border-strong);
       padding-left: var(--space-md);
       margin: 0;
       line-height: 1.45;
@@ -855,7 +589,7 @@
       font-weight: 600;
       margin: 0 0 var(--space-sm);
       padding-bottom: var(--space-xs);
-      border-bottom: 3px solid var(--accent-bright);
+      border-bottom: 1px solid var(--border);
       letter-spacing: 0;
     }
 
@@ -899,7 +633,7 @@
     }
 
     .price-tag {
-      color: var(--accent-bright);
+      color: var(--accent);
       font-weight: 600;
       font-size: 1.1rem;
       letter-spacing: 0.06em;
@@ -939,7 +673,7 @@
       font-weight: 600;
       letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: var(--accent-bright);
+      color: var(--text-primary);
     }
 
     .services-mobile-toggle > summary::-webkit-details-marker {
@@ -1057,7 +791,7 @@
       font-weight: 600;
       letter-spacing: 0.16em;
       text-transform: uppercase;
-      color: var(--accent);
+      color: var(--text-subtle);
       margin-bottom: var(--space-sm);
     }
 
@@ -1196,7 +930,7 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(135deg, transparent 40%, rgba(184, 134, 11, 0.08) 100%);
+      background: linear-gradient(135deg, transparent 40%, rgba(176, 139, 87, 0.08) 100%);
       pointer-events: none;
     }
 
@@ -1374,7 +1108,6 @@
       <div class="nav-panel" id="nav-panel">
         <nav aria-label="Primary">
           <ul class="nav-links">
-            <li><a href="#lead">Contact</a></li>
             <li><a href="#services">Services</a></li>
             <li><a href="#barbers">Barbers</a></li>
             <li><a href="#hours">Hours</a></li>
@@ -1389,7 +1122,7 @@
 
   <main id="main">
     <!-- Sections in order: hero, services, barbers, about, gallery, hours, bottom CTA bar -->
-    <!-- Hero: intro copy + contact form (anchor id=lead) -->
+    <!-- Hero: intro copy + primary booking actions -->
     <section class="hero" id="top" aria-labelledby="hero-heading">
       <div class="hero-split">
         <div class="hero-copy">
@@ -1399,7 +1132,6 @@
             <p class="hero-tagline">Where tradition meets modernity.</p>
             <div class="hero-actions">
               <a class="btn btn-primary" href="https://app.squareup.com/appointments/book/5anzstio9b7uv7/L8MZ9JRVK65YF/start" target="_blank" rel="noopener noreferrer">Book Online</a>
-              <a class="btn btn-outline" href="#lead">Send a message</a>
               <a class="btn btn-outline" href="tel:+13039976793">Call Now</a>
             </div>
             <p class="hero-meta"><a href="https://maps.google.com/?q=3966+S+Broadway,+Englewood,+CO+80113">3966 S Broadway, Englewood, CO 80113</a> · Hablamos español</p>
@@ -1411,76 +1143,6 @@
           </div>
         </div>
 
-        <aside class="lead-panel reveal" id="lead" style="transition-delay: 0.1s" aria-labelledby="lead-heading">
-          <h2 id="lead-heading">Questions before you book?</h2>
-          <p>We reply by phone or email during open hours. Not a guaranteed call order, just the quickest way to reach a human.</p>
-          <!-- FormSubmit inbox matches the form action URL. First real submit confirms it. Add name="_next" thank-you URL when the site is hosted. -->
-          <form class="lead-form" id="lead-form" action="https://formsubmit.co/hausoftaperz@gmail.com" method="post">
-            <input type="hidden" name="_subject" value="Haus Of Taperz landing page inquiry" />
-            <input type="hidden" name="_captcha" value="false" />
-            <p class="hp-field" aria-hidden="true">
-              <input type="text" name="_honey" tabindex="-1" autocomplete="off" value="" />
-            </p>
-            <div class="fields">
-              <div class="field-half">
-                <div>
-                  <label for="lead-name">Full name <span class="visually-hidden">required</span></label>
-                  <input id="lead-name" name="name" type="text" autocomplete="name" required placeholder="Your name" />
-                </div>
-                <div>
-                  <label for="lead-phone">Phone <span class="visually-hidden">required</span></label>
-                  <input id="lead-phone" name="phone" type="tel" autocomplete="tel" required placeholder="(303) 997-6793" />
-                </div>
-              </div>
-              <div>
-                <label for="lead-email">Email <span class="optional-hint">optional</span></label>
-                <input id="lead-email" name="email" type="email" autocomplete="email" placeholder="you@email.com" />
-              </div>
-              <div>
-                <label for="lead-service">Primary service</label>
-                <select id="lead-service" name="primary_service" required>
-                  <option value="" disabled selected>Select one</option>
-                  <option value="Men's haircut">Men's haircut</option>
-                  <option value="Kid cut (ages 4 to 12)">Kid cut (ages 4 to 12)</option>
-                  <option value="Beard">Beard trim or shape</option>
-                  <option value="Color service">Color service</option>
-                  <option value="Perm">Perm</option>
-                  <option value="Lineup or add-on">Lineup or add-on</option>
-                  <option value="Not sure / Multiple">Not sure / multiple services</option>
-                </select>
-              </div>
-              <div>
-                <label for="lead-barber">Barber preference</label>
-                <select id="lead-barber" name="barber_preference">
-                  <option value="No preference" selected>No preference</option>
-                  <option value="Marcus">Marcus</option>
-                  <option value="Johnny">Johnny</option>
-                  <option value="Cooper">Cooper</option>
-                  <option value="Eagan">Eagan</option>
-                </select>
-              </div>
-              <div class="field-half">
-                <div>
-                  <label for="lead-date">Ideal date <span class="optional-hint">optional</span></label>
-                  <input id="lead-date" name="ideal_date" type="date" autocomplete="off" />
-                </div>
-                <div>
-                  <label for="lead-time">Ideal time <span class="optional-hint">optional</span></label>
-                  <input id="lead-time" name="ideal_time" type="time" autocomplete="off" />
-                </div>
-              </div>
-              <div>
-                <label for="lead-notes">Notes <span class="optional-hint">optional</span></label>
-                <textarea id="lead-notes" name="notes" placeholder="Hair goals, kids' ages, beard length, or questions"></textarea>
-              </div>
-              <div class="btn-wrap">
-                <button type="submit" class="btn btn-primary">Send message</button>
-              </div>
-            </div>
-          </form>
-          <p class="lead-form-note">Ready to lock a time? Use <strong>Book Online</strong> in the hero or header.</p>
-          <p class="lead-panel-footer"><strong>Hours:</strong> Tuesday and Wednesday 10 a.m. to 4 p.m. All other days 9 a.m. to 5 p.m.<br />This form does not hold a chair. For a confirmed appointment, use Book Online or call <a href="tel:+13039976793">(303) 997-6793</a>.</p>
-        </aside>
       </div>
     </section>
 
@@ -1517,7 +1179,7 @@
                 <span class="price-tag">$--</span>
               </li>
               <li>
-                <span><strong>Marcus · premium owner</strong></span>
+                <span><strong>Marcus · Owner</strong></span>
                 <span class="price-tag">$--</span>
                 <span class="detail">Consultation, cut, fade, styling, optional hot towel, steamer, straight razor.</span>
               </li>
@@ -1778,7 +1440,6 @@
           <p class="footer-label">Navigate</p>
           <ul class="footer-list">
             <li><a href="#about">About</a></li>
-            <li><a href="#lead">Contact</a></li>
             <li><a href="#services">Services</a></li>
             <li><a href="#barbers">Barbers</a></li>
             <li><a href="#gallery">Gallery</a></li>
