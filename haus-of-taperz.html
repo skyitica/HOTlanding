@@ -16,8 +16,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="description" content="Haus Of Taperz in Englewood, CO. Book online, call, or send a message for questions. Men's cuts, kids, beard, color, add-ons." />
-  <title>Haus Of Taperz | Englewood Barbershop | Book or Message</title>
+  <meta name="description" content="Haus Of Taperz in Englewood, CO. Book online with Square or call to reserve your chair. Men's cuts, kids, beards, color, and add-ons." />
+  <title>Haus Of Taperz | Englewood Barbershop | Book Online</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Jost:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
@@ -33,10 +33,10 @@
       --text-primary: #f0e9dc;
       --text-muted: #a8a094;
       --text-subtle: #8f877c;
-      --accent: #b08b57;
-      --accent-bright: #cfad7b;
-      --accent-soft: rgba(176, 139, 87, 0.12);
-      --accent-glow: rgba(176, 139, 87, 0.2);
+      --accent: #8a8b8d;
+      --accent-bright: #b9bbbf;
+      --accent-soft: rgba(138, 139, 141, 0.14);
+      --accent-glow: rgba(138, 139, 141, 0.22);
       --border: rgba(240, 233, 220, 0.14);
       --border-strong: rgba(240, 233, 220, 0.24);
       --shadow-sm: 0 1px 0 rgba(0, 0, 0, 0.32), 0 8px 24px rgba(0, 0, 0, 0.34);
@@ -429,7 +429,7 @@
       background-color: var(--bg-warm);
       background-image: radial-gradient(
           circle at 85% -5%,
-          rgba(184, 134, 11, 0.18) 0%,
+          rgba(200, 215, 230, 0.16) 0%,
           transparent 42%
         ),
         linear-gradient(
@@ -683,6 +683,16 @@
       font-size: 1.35rem;
       font-weight: 700;
       letter-spacing: 0.02em;
+    }
+
+    /* "Varies" tag: same place as a price, slightly quieter so real dollar amounts pop. */
+    .price-tag--varies {
+      font-style: italic;
+      font-weight: 600;
+      font-size: 0.85em;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-muted);
     }
 
     .services-mobile-toggle {
@@ -957,7 +967,7 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(135deg, transparent 40%, rgba(176, 139, 87, 0.08) 100%);
+      background: linear-gradient(135deg, transparent 40%, rgba(185, 187, 191, 0.1) 100%);
       pointer-events: none;
     }
 
@@ -1183,9 +1193,20 @@
         letter-spacing: 0.12em;
       }
 
-      /* The iframe booking widget is huge on phones; the inline Book/Call
-         buttons already cover that intent. Hide the embed on mobile. */
-      .hero-booking { display: none !important; }
+      /* Square booking widget: shown directly under the hero CTAs on mobile so
+         visitors can book without leaving the page. Height trimmed for phones. */
+      .hero-booking {
+        margin-top: var(--space-md);
+        padding-top: var(--space-md);
+        border-top: 1px solid var(--border);
+      }
+      .hero-booking-label {
+        font-size: 0.625rem;
+        letter-spacing: 0.14em;
+        margin-bottom: 0.5rem;
+      }
+      .booking-embed iframe { min-height: 560px; }
+      .booking-fallback { font-size: 0.8rem; }
 
       /* Services */
       .services-intro { margin-bottom: var(--space-md); }
@@ -1342,34 +1363,33 @@
         <div class="reveal services-intro">
           <p class="eyebrow">Menu</p>
           <h2 id="services-heading">Services at a glance</h2>
-          <p>Everything is grouped by category so you can scan fast. Core services are shown first, and add-ons and chemical options can be expanded below on mobile.</p>
         </div>
 
         <div class="services-compact">
           <div class="service-card reveal">
             <h3>Men's haircuts</h3>
-            <p class="fine-print">Price varies by barber and service.</p>
+            <p class="fine-print">Each barber sets their own rate. Final price confirmed in the chair.</p>
             <ul class="price-list price-list--compact">
               <li>
                 <span><strong>First available</strong></span>
-                <span class="price-tag">$--</span>
+                <span class="price-tag price-tag--varies">Varies</span>
                 <span class="detail">Next open chair.</span>
               </li>
               <li>
                 <span><strong>Cooper</strong></span>
-                <span class="price-tag">$--</span>
+                <span class="price-tag price-tag--varies">Varies</span>
               </li>
               <li>
                 <span><strong>Eagan</strong></span>
-                <span class="price-tag">$--</span>
+                <span class="price-tag price-tag--varies">Varies</span>
               </li>
               <li>
                 <span><strong>Johnny</strong></span>
-                <span class="price-tag">$--</span>
+                <span class="price-tag price-tag--varies">Varies</span>
               </li>
               <li>
                 <span><strong>Marcus · Owner</strong></span>
-                <span class="price-tag">$--</span>
+                <span class="price-tag price-tag--varies">Varies</span>
                 <span class="detail">Consultation, cut, fade, styling, optional hot towel, steamer, straight razor.</span>
               </li>
             </ul>
@@ -1377,19 +1397,17 @@
 
           <div class="service-card reveal" style="transition-delay: 0.04s;">
             <h3>Kid cuts</h3>
-            <p class="fine-print">Ages 4 to 12. Book the barber listed for that rate.</p>
+            <p class="fine-print">Book the barber listed for that rate.</p>
             <ul class="price-list price-list--compact">
               <li>
-                <span><strong>Cooper</strong></span>
-                <span class="price-tag">$--</span>
-              </li>
-              <li>
                 <span><strong>Eagan</strong></span>
-                <span class="price-tag">$--</span>
+                <span class="price-tag">$40</span>
+                <span class="detail">Ages 4 to 12.</span>
               </li>
               <li>
                 <span><strong>Johnny</strong></span>
-                <span class="price-tag">$--</span>
+                <span class="price-tag">$45</span>
+                <span class="detail">Ages 6 to 12.</span>
               </li>
             </ul>
           </div>
@@ -1398,9 +1416,9 @@
             <h3>Beards</h3>
             <p class="fine-print">Priced by barber.</p>
             <ul class="price-list price-list--compact">
-              <li><span><strong>Cooper</strong></span><span class="price-tag">$--</span></li>
-              <li><span><strong>Johnny</strong></span><span class="price-tag">$--</span></li>
-              <li><span><strong>Eagan</strong></span><span class="price-tag">$--</span></li>
+              <li><span><strong>Cooper</strong></span><span class="price-tag">$50</span></li>
+              <li><span><strong>Johnny</strong></span><span class="price-tag">$35</span></li>
+              <li><span><strong>Eagan</strong></span><span class="price-tag">$30</span></li>
             </ul>
           </div>
         </div>
@@ -1414,13 +1432,13 @@
                 <ul class="price-list price-list--compact">
                   <li>
                     <span><strong>Color services</strong></span>
-                    <span class="price-tag">$--</span>
+                    <span class="price-tag price-tag--varies">Varies</span>
                     <span class="detail">Final pricing confirmed during consultation.</span>
                   </li>
                   <li>
                     <span><strong>Perm</strong></span>
-                    <span class="price-tag">$--</span>
-                    <span class="detail">Final pricing confirmed during consultation.</span>
+                    <span class="price-tag">$120</span>
+                    <span class="detail">First-time / virgin hair may need a follow-up; details at consultation.</span>
                   </li>
                 </ul>
               </div>
@@ -1431,15 +1449,20 @@
                 <ul class="price-list price-list--compact">
                   <li>
                     <span><strong>Lineup</strong></span>
-                    <span class="price-tag">$--</span>
+                    <span class="price-tag price-tag--varies">Varies</span>
+                    <span class="detail">Line-ups are included with haircuts. Book this only for a line-up without a cut or taper.</span>
                   </li>
-                  <li><span><strong>Down perm (cowlicks)</strong></span><span class="price-tag">$--</span></li>
-                  <li><span><strong>Eyebrows</strong></span><span class="price-tag">$--</span></li>
-                  <li><span><strong>Hot towel</strong></span><span class="price-tag">$--</span></li>
-                  <li><span><strong>Shampoo &amp; condition</strong></span><span class="price-tag">$--</span></li>
-                  <li><span><strong>Designs</strong></span><span class="price-tag">$--</span></li>
-                  <li><span><strong>Black mask treatment</strong></span><span class="price-tag">$--</span></li>
-                  <li><span><strong>Face scrub</strong></span><span class="price-tag">$--</span></li>
+                  <li><span><strong>Down perm (cowlicks)</strong></span><span class="price-tag">$10</span></li>
+                  <li><span><strong>Eyebrows</strong></span><span class="price-tag price-tag--varies">Varies</span></li>
+                  <li>
+                    <span><strong>Hot towel</strong></span>
+                    <span class="price-tag">$7</span>
+                    <span class="detail">Included with beard and shave services.</span>
+                  </li>
+                  <li><span><strong>Shampoo &amp; condition</strong></span><span class="price-tag price-tag--varies">Varies</span></li>
+                  <li><span><strong>Designs</strong></span><span class="price-tag price-tag--varies">Varies</span></li>
+                  <li><span><strong>Black mask treatment</strong></span><span class="price-tag">$10</span></li>
+                  <li><span><strong>Face scrub</strong></span><span class="price-tag">$10</span></li>
                 </ul>
               </div>
             </div>
@@ -1472,7 +1495,6 @@
             <div class="barber-body">
               <h3>Marcus</h3>
               <p class="barber-role">Founder / Master Barber</p>
-              <p>5+ years in the chair. Precision-focused and luxury-minded: consultation through finish, plus optional hot towel, steamer, and straight razor when you want the full treatment.</p>
             </div>
           </article>
           <article class="barber-card reveal" style="transition-delay: 0.06s;">
@@ -1489,7 +1511,6 @@
             <div class="barber-body">
               <h3>Johnny</h3>
               <p class="barber-role">Barber</p>
-              <p>Known for consistency, clean fades, and the small details that keep a line sharp week after week.</p>
             </div>
           </article>
           <article class="barber-card reveal" style="transition-delay: 0.12s;">
@@ -1506,7 +1527,6 @@
             <div class="barber-body">
               <h3>Cooper</h3>
               <p class="barber-role">Barber / Cosmetologist</p>
-              <p>Dual-licensed, military-trained discipline, former Aveda educator. Technique you can feel in every section.</p>
             </div>
           </article>
           <article class="barber-card reveal" style="transition-delay: 0.18s;">
@@ -1523,7 +1543,6 @@
             <div class="barber-body">
               <h3>Eagan</h3>
               <p class="barber-role">Barber</p>
-              <p>Trend-forward and modern: the barber to see when your reference is fresh off the runway or the timeline.</p>
             </div>
           </article>
         </div>
