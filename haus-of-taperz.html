@@ -988,7 +988,7 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(135deg, transparent 40%, rgba(185, 187, 191, 0.1) 100%);
+      background: linear-gradient(135deg, transparent 40%, rgba(70, 75, 82, 0.08) 100%);
       pointer-events: none;
     }
 
@@ -997,8 +997,9 @@
       z-index: 1;
     }
 
+    /* CTA band has a light --ink background; everything inside needs dark-on-light contrast. */
     .cta-band .eyebrow {
-      color: var(--accent-bright);
+      color: #4d5358;
     }
 
     .cta-band h2 {
@@ -1013,7 +1014,7 @@
       margin-left: auto;
       margin-right: auto;
       margin-bottom: var(--space-lg);
-      color: rgba(255, 255, 255, 0.82);
+      color: rgba(22, 24, 27, 0.78);
     }
 
     .cta-band .btn-primary {
@@ -1023,19 +1024,19 @@
     }
 
     .cta-band .btn-primary:hover {
-      background: var(--accent-bright);
+      background: #2b2e33;
       color: var(--ink);
     }
 
     .cta-band .btn-outline {
-      border-color: rgba(255, 255, 255, 0.55);
+      border-color: rgba(22, 24, 27, 0.4);
       color: var(--bg-page);
     }
 
     .cta-band .btn-outline:hover {
-      border-color: var(--accent-bright);
-      color: var(--accent-bright);
-      background: rgba(255, 255, 255, 0.06);
+      border-color: var(--bg-page);
+      color: var(--bg-page);
+      background: rgba(22, 24, 27, 0.06);
     }
 
     .cta-actions {
