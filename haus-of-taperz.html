@@ -417,7 +417,7 @@
       margin-bottom: 0;
     }
 
-    /* Hero: honeycomb texture with warm dark contrast */
+    /* Hero: shop interior photo with warm dark overlay so copy stays readable */
     .hero {
       min-height: calc(100vh - var(--nav-h));
       display: flex;
@@ -429,25 +429,20 @@
       background-color: var(--bg-warm);
       background-image: radial-gradient(
           circle at 85% -5%,
-          rgba(184, 134, 11, 0.2) 0%,
+          rgba(184, 134, 11, 0.18) 0%,
           transparent 42%
         ),
         linear-gradient(
-          to bottom,
-          rgba(26, 24, 20, 0.95) 0%,
-          rgba(22, 19, 15, 0.8) 38%,
-          rgba(21, 18, 14, 0.66) 70%,
-          transparent 100%
+          180deg,
+          rgba(20, 17, 12, 0.55) 0%,
+          rgba(20, 17, 12, 0.78) 58%,
+          rgba(20, 17, 12, 0.96) 100%
         ),
-        url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'80.21'%20height%3D'81.00'%20viewBox%3D'0%200%2080.21%2081.00'%3E%3Cg%20fill%3D'none'%20stroke%3D'%23121110'%20stroke-width%3D'0.95'%20stroke-opacity%3D'0.14'%20stroke-linejoin%3D'round'%3E%3Cpolygon%20points%3D'21.05%2C2.00%2040.11%2C13.00%2040.11%2C35.00%2021.05%2C46.00%202.00%2C35.00%202.00%2C13.00'%2F%3E%3Cpolygon%20points%3D'59.16%2C2.00%2078.21%2C13.00%2078.21%2C35.00%2059.16%2C46.00%2040.11%2C35.00%2040.11%2C13.00'%2F%3E%3Cpolygon%20points%3D'40.11%2C35.00%2059.16%2C46.00%2059.16%2C68.00%2040.11%2C79.00%2021.05%2C68.00%2021.05%2C46.00'%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E"),
+        url("images/shop-hero.png"),
         linear-gradient(180deg, var(--bg-page) 0%, var(--bg-warm) 100%);
-      background-repeat: no-repeat, no-repeat, repeat, no-repeat;
-      background-size:
-        auto,
-        auto,
-        clamp(148px, 22vw, 220px) auto,
-        auto;
-      background-position: top right, 0 0, center calc(-1 * var(--space-sm)), 0 0;
+      background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
+      background-size: auto, auto, cover, auto;
+      background-position: top right, center, center, 0 0;
     }
 
     .hero-main {
@@ -1121,6 +1116,162 @@
     .reveal.is-visible {
       opacity: 1;
       transform: translateY(0);
+    }
+
+    /* ----------------------------------------------------------------
+       Mobile compact overrides
+       Goal: nothing oversized, no horizontal scroll, every block fits.
+       Scoped behind @media so desktop layout is untouched.
+       ---------------------------------------------------------------- */
+    html, body {
+      overflow-x: hidden;
+    }
+
+    @media (max-width: 700px) {
+      :root {
+        --space-xl: 2.25rem;
+        --space-2xl: 3rem;
+      }
+
+      body { font-size: 1rem; }
+
+      h1 { font-size: clamp(2.25rem, 11vw, 3rem); }
+      h2 { font-size: clamp(1.55rem, 6.5vw, 2rem); }
+      h3 { font-size: 1.15rem; }
+
+      .wrap { padding: 0 var(--space-sm); }
+
+      .section { padding: var(--space-xl) 0; }
+
+      /* Nav */
+      .nav-inner { padding: 0 var(--space-sm); gap: var(--space-sm); }
+      .logo .brand-name { font-size: 1rem; }
+
+      /* Hero: tighter padding, photo crops to the chair area */
+      .hero {
+        min-height: 0;
+        background-position: top right, center, center 25%, 0 0;
+      }
+      .hero-split {
+        padding: var(--space-lg) var(--space-sm) var(--space-xl);
+      }
+      .hero-main {
+        padding-left: var(--space-sm);
+        border-left-width: 3px;
+      }
+      .hero-tagline {
+        font-size: 1.05rem;
+        margin-bottom: var(--space-sm);
+      }
+      .hero-meta { font-size: 0.85rem; margin-top: var(--space-sm); }
+      .hero-actions {
+        gap: 0.6rem;
+        margin-top: var(--space-md);
+      }
+      .hero-actions .btn {
+        flex: 1 1 0;
+        padding: 0.85rem 0.75rem;
+        font-size: 0.7rem;
+      }
+      .hero-trust {
+        gap: 0.35rem 1rem;
+        margin-top: var(--space-sm);
+        padding-top: var(--space-sm);
+      }
+      .hero-trust li {
+        font-size: 0.625rem;
+        letter-spacing: 0.12em;
+      }
+
+      /* The iframe booking widget is huge on phones; the inline Book/Call
+         buttons already cover that intent. Hide the embed on mobile. */
+      .hero-booking { display: none !important; }
+
+      /* Services */
+      .services-intro { margin-bottom: var(--space-md); }
+      .services-compact { gap: var(--space-md); }
+      .service-card { padding: var(--space-md); }
+      .service-card h3 { font-size: 1rem; }
+      .price-list li {
+        gap: var(--space-sm);
+        padding: 0.55rem 0;
+        font-size: 0.875rem;
+      }
+      .price-list--compact .price-tag { font-size: 1.05rem; }
+      .price-list .detail { font-size: 0.75rem; }
+
+      /* Barbers: 2 columns of square portraits, compact body copy */
+      .barbers-grid { gap: var(--space-md); }
+      .barber-photo { aspect-ratio: 1 / 1; }
+      .barber-body { padding: var(--space-sm) var(--space-md); }
+      .barber-body h3 { font-size: 1rem; margin-bottom: 0.2rem; }
+      .barber-role { font-size: 0.6rem; letter-spacing: 0.1em; margin-bottom: 0.4rem; }
+      .barber-body p { font-size: 0.8rem; line-height: 1.45; }
+
+      /* About */
+      .about-grid { gap: var(--space-md); }
+      .about-pull {
+        font-size: 1.15rem;
+        padding-left: var(--space-sm);
+        border-left-width: 3px;
+        line-height: 1.4;
+      }
+
+      /* Gallery */
+      .gallery-grid { gap: 0.5rem; }
+      .gallery-item { min-height: 110px; }
+      .gallery-item::after { font-size: 0.6rem; letter-spacing: 0.12em; }
+
+      /* Hours + visit */
+      .hours-layout { gap: var(--space-md); }
+      .hours-table { font-size: 0.875rem; }
+      .hours-table th, .hours-table td { padding: 0.55rem 0; }
+      .visit-card {
+        padding: var(--space-md);
+        box-shadow: 4px 4px 0 var(--accent-soft);
+        border-width: 1px;
+      }
+      .visit-card h3 { margin-bottom: var(--space-sm); }
+
+      /* Bottom CTA strip */
+      .cta-band { padding: var(--space-xl) 0; }
+      .cta-band h2 { margin-bottom: 0.6rem; }
+      .cta-band p {
+        font-size: 0.9rem;
+        margin-bottom: var(--space-md);
+      }
+      .cta-actions { gap: 0.6rem; }
+      .cta-actions .btn {
+        flex: 1 1 0;
+        padding: 0.9rem 0.75rem;
+        font-size: 0.7rem;
+      }
+
+      /* Footer */
+      .site-footer { padding: var(--space-lg) 0 var(--space-md); }
+      .footer-grid { gap: var(--space-md); }
+      .footer-brand .brand-name { font-size: 1.3rem; }
+      .footer-copy {
+        margin-top: var(--space-md);
+        font-size: 0.75rem;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .hero-actions,
+      .cta-actions {
+        flex-direction: column;
+      }
+      .hero-actions .btn,
+      .cta-actions .btn {
+        width: 100%;
+      }
+      .hero-trust li { font-size: 0.58rem; }
+      .nav-cta-wrap .btn {
+        padding: 0.55rem 0.85rem;
+        font-size: 0.7rem;
+      }
+      .logo .brand-name { font-size: 0.95rem; }
     }
   </style>
 </head>
