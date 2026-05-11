@@ -497,8 +497,21 @@
         max-width: 100%;
       }
 
+      /* On desktop the booking aside sits on top of the hero photo, which has
+         bright LED reflections. Wrap it in a subtle dark panel so the BOOK NOW
+         label stays legible regardless of what's behind it. */
       .hero-booking {
         margin-top: 0;
+        background: rgba(16, 18, 20, 0.62);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid var(--border);
+        padding: var(--space-md);
+        box-shadow: var(--shadow-sm);
+      }
+
+      .hero-booking .booking-embed {
+        border-color: var(--border);
       }
     }
 
